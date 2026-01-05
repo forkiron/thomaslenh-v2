@@ -45,8 +45,11 @@ export default function Home() {
             engineer and designer based in waterloo and toronto, focusing on{" "}
             <span className="text-zinc-300 italic underline underline-offset-4">
               minimalist interfaces and optimizied systems
-            </span>{" "}
-            currently studying math at the university of waterloo.
+            </span>
+            <br />
+            <span className="ml-4">
+              ↳ currently studying math at the university of waterloo.
+            </span>
           </p>
         </header>
 
