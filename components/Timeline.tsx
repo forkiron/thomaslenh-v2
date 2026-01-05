@@ -91,8 +91,8 @@ const TimelineItem = ({ item, index }: TimelineItemProps) => {
         <div
           className="w-2 h-2 rounded-full z-10 transition-colors"
           style={{
-            backgroundColor: "var(--border-color)",
-            border: "1px solid var(--text-subtle)",
+            backgroundColor: "var(--timeline-node-bg)",
+            border: "1px solid var(--timeline-node-border)",
           }}
         />
         <span
@@ -114,7 +114,7 @@ export default function Timeline() {
     <section className="relative mb-40">
       <div
         className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px"
-        style={{ backgroundColor: "var(--border-color)" }}
+        style={{ backgroundColor: "var(--timeline-line)" }}
       />
       <div className="space-y-12">
         {TIMELINE_DATA.map((item, i) => (

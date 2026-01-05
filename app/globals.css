@@ -12,6 +12,9 @@
   --border-color: #e4e4e7;
   --selection-bg: #e4e4e7;
   --selection-text: #18181b;
+  --timeline-line: #d4d4d8;
+  --timeline-node-bg: #a1a1aa;
+  --timeline-node-border: #71717a;
 }
 
 .dark {
@@ -25,6 +28,9 @@
   --border-color: #27272a;
   --selection-bg: #27272a;
   --selection-text: #fafafa;
+  --timeline-line: #3f3f46;
+  --timeline-node-bg: #52525b;
+  --timeline-node-border: #71717a;
 }
 
 @theme inline {
