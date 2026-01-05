@@ -27,8 +27,8 @@ const TIMELINE_DATA = [
   },
   {
     year: "2023",
-    role: "Student",
-    company: "UWaterloo",
+    role: "Winnner",
+    company: "Clockhacks + Rythmhacks",
     details:
       "↳ Viverra suspendisse potenti nullam ac tortor vitae purus faucibus. Elementum curabitur vitae nunc sed.",
   },

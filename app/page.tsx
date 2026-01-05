@@ -31,20 +31,6 @@ const Nav = () => (
       >
         projects
       </Link>
-      <a
-        href="#about"
-        className="hover:opacity-100 transition-opacity"
-        style={{ color: "var(--text-muted)" }}
-      >
-        about
-      </a>
-      <a
-        href="#contact"
-        className="hover:opacity-100 transition-opacity"
-        style={{ color: "var(--text-muted)" }}
-      >
-        contact
-      </a>
     </div>
   </nav>
 );
