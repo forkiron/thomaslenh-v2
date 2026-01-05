@@ -15,9 +15,8 @@ const TIMELINE_DATA = [
   {
     year: "2025",
     role: "Sed Do Eiused",
-    company: "Tempor Incididunt",
-    details:
-      "↳ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    company: "Keywa Newcomers Network",
+    details: "↳ global gateway for international students.",
   },
   {
     year: "2024",
@@ -59,10 +58,16 @@ const TimelineItem = ({ item, index }: TimelineItemProps) => {
     >
       {/* Content Side */}
       <div className={`w-[42%] ${isEven ? "text-left" : "text-right"}`}>
-        <h4 className="text-[11px] font-mono text-zinc-500 uppercase tracking-[0.2em] mb-1">
+        <h4
+          className="text-[11px] font-mono uppercase tracking-[0.2em] mb-1"
+          style={{ color: "var(--text-muted)" }}
+        >
           {item.company}
         </h4>
-        <h3 className="text-lg font-medium text-zinc-200 lowercase">
+        <h3
+          className="text-lg font-medium lowercase"
+          style={{ color: "var(--text-secondary)" }}
+        >
           {item.role}
         </h3>
 
@@ -72,7 +77,8 @@ const TimelineItem = ({ item, index }: TimelineItemProps) => {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              className="text-sm text-zinc-500 mt-2 leading-relaxed font-light lowercase"
+              className="text-sm mt-2 leading-relaxed font-light lowercase"
+              style={{ color: "var(--text-muted)" }}
             >
               {item.details}
             </motion.p>
@@ -82,8 +88,17 @@ const TimelineItem = ({ item, index }: TimelineItemProps) => {
 
       {/* Center Year Marker */}
       <div className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center">
-        <div className="w-2 h-2 rounded-full bg-zinc-800 border border-zinc-700 z-10 transition-colors group-hover:bg-white" />
-        <span className="mt-4 text-[10px] font-mono text-zinc-600 rotate-90 origin-left translate-x-1">
+        <div
+          className="w-2 h-2 rounded-full z-10 transition-colors"
+          style={{
+            backgroundColor: "var(--border-color)",
+            border: "1px solid var(--text-subtle)",
+          }}
+        />
+        <span
+          className="mt-4 text-[10px] font-mono rotate-90 origin-left translate-x-1"
+          style={{ color: "var(--text-subtle)" }}
+        >
           {item.year}
         </span>
       </div>
@@ -97,7 +112,10 @@ const TimelineItem = ({ item, index }: TimelineItemProps) => {
 export default function Timeline() {
   return (
     <section className="relative mb-40">
-      <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px bg-zinc-900" />
+      <div
+        className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px"
+        style={{ backgroundColor: "var(--border-color)" }}
+      />
       <div className="space-y-12">
         {TIMELINE_DATA.map((item, i) => (
           <TimelineItem key={i} item={item} index={i} />
@@ -106,4 +124,3 @@ export default function Timeline() {
     </section>
   );
 }
-

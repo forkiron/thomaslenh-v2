@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const PROJECTS = [
   { name: "project_alpha", desc: "lorem ipsum dolor sit amet" },
@@ -10,19 +11,34 @@ const PROJECTS = [
 ];
 
 const Nav = () => (
-  <nav className="flex justify-between items-center py-8 px-6 max-w-5xl mx-auto text-[13px] font-mono lowercase tracking-tighter text-zinc-500">
-    <div>◆ available for work</div>
+  <nav
+    className="flex justify-between items-center py-8 px-6 max-w-5xl mx-auto text-[13px] font-mono lowercase tracking-tighter"
+    style={{ color: "var(--text-muted)" }}
+  >
+    <div className="flex items-center gap-4">
+      <div>◆ available for work</div>
+      <ThemeToggle />
+    </div>
     <div className="flex gap-6">
       <Link
         href="/projects"
-        className="hover:text-white transition-colors text-white"
+        className="transition-colors"
+        style={{ color: "var(--text-primary)" }}
       >
         projects
       </Link>
-      <Link href="/#about" className="hover:text-white transition-colors">
+      <Link
+        href="/#about"
+        className="hover:opacity-100 transition-opacity"
+        style={{ color: "var(--text-muted)" }}
+      >
         about
       </Link>
-      <Link href="/#contact" className="hover:text-white transition-colors">
+      <Link
+        href="/#contact"
+        className="hover:opacity-100 transition-opacity"
+        style={{ color: "var(--text-muted)" }}
+      >
         contact
       </Link>
     </div>
@@ -31,25 +47,41 @@ const Nav = () => (
 
 export default function Projects() {
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-zinc-300 selection:bg-zinc-800 selection:text-white selection:bg-opacity-50">
+    <div
+      className="min-h-screen"
+      style={{
+        backgroundColor: "var(--bg-primary)",
+        color: "var(--text-secondary)",
+      }}
+    >
       <Nav />
 
       <main className="max-w-4xl mx-auto px-6 pt-20 pb-40">
         {/* Projects List */}
         <section className="mb-40">
-          <h2 className="text-[11px] font-mono text-zinc-600 uppercase tracking-[0.3em] mb-12">
+          <h2
+            className="text-[11px] font-mono uppercase tracking-[0.3em] mb-12"
+            style={{ color: "var(--text-muted)" }}
+          >
             selected_projects
           </h2>
           <div className="grid grid-cols-1 gap-y-8">
             {PROJECTS.map((proj, i) => (
               <div
                 key={i}
-                className="group flex justify-between items-baseline border-b border-zinc-900 pb-4 cursor-crosshair"
+                className="group flex justify-between items-baseline pb-4 cursor-crosshair"
+                style={{ borderBottom: "1px solid var(--border-color)" }}
               >
-                <span className="text-zinc-200 group-hover:translate-x-2 transition-transform duration-300">
+                <span
+                  className="group-hover:translate-x-2 transition-transform duration-300"
+                  style={{ color: "var(--text-secondary)" }}
+                >
                   {proj.name}
                 </span>
-                <span className="text-sm text-zinc-600 group-hover:text-zinc-400 transition-colors font-mono">
+                <span
+                  className="text-sm group-hover:opacity-80 transition-opacity font-mono"
+                  style={{ color: "var(--text-muted)" }}
+                >
                   {proj.desc}
                 </span>
               </div>
