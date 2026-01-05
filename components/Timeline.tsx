@@ -20,17 +20,16 @@ const TIMELINE_DATA = [
   },
   {
     year: "2024",
-    role: "Magna Aliqua",
-    company: "Excepteur Sint",
-    details:
-      "↳ Mollis nunc sed id semper risus in hendrerit gravida. Libero id faucibus nisl tincidunt eget.",
+    role: "2024",
+    company: "Event Madness",
+    details: "↳ Neodev League (backed by Convictional YC W19 & WRDSB ).",
   },
   {
     year: "2023",
-    role: "Winnner",
-    company: "Clockhacks + Rythmhacks",
+    role: "2023",
+    company: "2x hackathon wins",
     details:
-      "↳ Viverra suspendisse potenti nullam ac tortor vitae purus faucibus. Elementum curabitur vitae nunc sed.",
+      "↳ Built an IOT system using an HC-SR04 to monitor regional garbage fill levels with end-to-end database integration and visualization",
   },
 ];
 

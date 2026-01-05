@@ -1,15 +1,16 @@
 "use client";
 
 import Link from "next/link";
+import { Github, Twitter, Linkedin, Mail } from "lucide-react";
 import Timeline from "@/components/Timeline";
 import ThemeToggle from "@/components/ThemeToggle";
 
 // --- DATA ---
 const SOCIAL_LINKS = [
-  { label: "Email", href: "#" },
-  { label: "GitHub", href: "#" },
-  { label: "Twitter", href: "#" },
-  { label: "LinkedIn", href: "#" },
+  { label: "GitHub", href: "#", icon: Github },
+  { label: "Twitter", href: "#", icon: Twitter },
+  { label: "LinkedIn", href: "#", icon: Linkedin },
+  { label: "Email", href: "#", icon: Mail },
 ];
 
 // --- COMPONENTS ---
@@ -90,14 +91,21 @@ export default function Home() {
               >
                 reach out if you're a founder or a fellow builder!
               </p>
-              <div className="flex gap-4 mt-6">
+              <div className="flex gap-5 mt-6">
                 {SOCIAL_LINKS.map((link) => (
                   <a
                     key={link.label}
                     href={link.href}
-                    className="text-xs font-mono hover:opacity-100 transition-opacity"
+                    className="flex items-center gap-1.5 text-xs font-mono transition-all duration-200 hover:scale-105"
                     style={{ color: "var(--text-subtle)" }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.color = "var(--text-primary)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.color = "var(--text-subtle)";
+                    }}
                   >
+                    <link.icon size={14} />
                     {link.label}
                   </a>
                 ))}
