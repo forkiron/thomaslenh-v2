@@ -1,17 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { Github, Twitter, Linkedin, Mail } from "lucide-react";
 import Timeline from "@/components/Timeline";
 import ThemeToggle from "@/components/ThemeToggle";
-
-// --- DATA ---
-const SOCIAL_LINKS = [
-  { label: "GitHub", href: "#", icon: Github },
-  { label: "Twitter", href: "#", icon: Twitter },
-  { label: "LinkedIn", href: "#", icon: Linkedin },
-  { label: "Email", href: "#", icon: Mail },
-];
+import Contact from "@/components/Contact";
+import OnlineIndicator from "@/components/OnlineIndicator";
 
 // --- COMPONENTS ---
 
@@ -21,14 +14,33 @@ const Nav = () => (
     style={{ color: "var(--text-muted)" }}
   >
     <div className="flex items-center gap-4">
-      <div>◆ available for work</div>
+      <OnlineIndicator />
       <ThemeToggle />
     </div>
     <div className="flex gap-6">
       <Link
+        href="/"
+        className="font-mono lowercase tracking-tighter transition-all duration-200"
+        style={{ color: "var(--text-primary)" }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.color = "var(--text-primary)";
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.color = "var(--text-primary)";
+        }}
+      >
+        home
+      </Link>
+      <Link
         href="/projects"
-        className="hover:opacity-100 transition-opacity"
+        className="font-mono lowercase tracking-tighter transition-all duration-200"
         style={{ color: "var(--text-muted)" }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.color = "var(--text-primary)";
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.color = "var(--text-muted)";
+        }}
       >
         projects
       </Link>
@@ -78,47 +90,7 @@ export default function Home() {
         <Timeline />
 
         {/* Contact / Footer */}
-        <section
-          id="contact"
-          className="pt-20"
-          style={{ borderTop: "1px solid var(--border-color)" }}
-        >
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
-            <div>
-              <p
-                className="text-sm lowercase"
-                style={{ color: "var(--text-muted)" }}
-              >
-                reach out if you're a founder or a fellow builder!
-              </p>
-              <div className="flex gap-5 mt-6">
-                {SOCIAL_LINKS.map((link) => (
-                  <a
-                    key={link.label}
-                    href={link.href}
-                    className="flex items-center gap-1.5 text-xs font-mono transition-all duration-200 hover:scale-105"
-                    style={{ color: "var(--text-subtle)" }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.color = "var(--text-primary)";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.color = "var(--text-subtle)";
-                    }}
-                  >
-                    <link.icon size={14} />
-                    {link.label}
-                  </a>
-                ))}
-              </div>
-            </div>
-            <div
-              className="text-[10px] font-mono uppercase"
-              style={{ color: "var(--text-subtle)" }}
-            >
-              © 2026 all rights reserved
-            </div>
-          </div>
-        </section>
+        <Contact />
       </main>
     </div>
   );
