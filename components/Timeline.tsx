@@ -3,6 +3,25 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
+// --- HELPER COMPONENT ---
+const TimelineLink = ({
+  href,
+  children,
+}: {
+  href: string;
+  children: React.ReactNode;
+}) => (
+  <a
+    href={href}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="underline hover:opacity-80"
+    style={{ color: "var(--text-muted)" }}
+  >
+    {children}
+  </a>
+);
+
 // --- DATA ---
 const TIMELINE_DATA = [
   {
@@ -11,9 +30,8 @@ const TIMELINE_DATA = [
     company: "",
     items: [
       {
-        title: "Principal Designer",
-        details:
-          "↳ leading design systems for next-gen spatial computing interfaces.",
+        title: "TestEraser",
+        details: "↳ Transform used tests into blank practice questions",
       },
       {
         title: "Product Strategy",
@@ -34,9 +52,27 @@ const TIMELINE_DATA = [
         ],
       },
       {
-        title: "UX Researcher",
-        details:
-          "↳ conducting user interviews to optimize the onboarding funnel.",
+        title: "Engineering - FIRST Robotics (FRC 2702)",
+        details: "↳ Prototyped a 3D computer vision recognition pipeline",
+      },
+      {
+        title: "Content/Growth",
+        details: [
+          "↳ cracked virality, 10M+ views on Instagram and Tiktok in 3 months",
+          <>
+            ↳ growth @{" "}
+            <TimelineLink href="https://typeos.com/">TypeOS</TimelineLink> (YC
+            X25) &{" "}
+            <TimelineLink href="https://methods.app/">instinct©</TimelineLink>
+          </>,
+        ],
+      },
+      {
+        title: "Co-founder - Neo Developer League",
+        details: [
+          "↳ non-profit org, raised $12k for a high school programming event.",
+          "↳ backed by Convictional (YC W19) and Waterloo regional school board (~ 65k students)..",
+        ],
       },
     ],
   },
@@ -80,17 +116,16 @@ const TIMELINE_DATA = [
 
 interface TimelineSubItemProps {
   title: string;
-  details: string | string[];
+  details: string | string[] | React.ReactNode | React.ReactNode[];
 }
 
 const TimelineSubItem = ({ title, details }: TimelineSubItemProps) => {
+  const [isOpen, setIsOpen] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
   return (
     <div
-      className="group cursor-default py-1"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      className="group py-1 w-full"
       style={{
         display: "flex",
         flexDirection: "column",
@@ -98,20 +133,31 @@ const TimelineSubItem = ({ title, details }: TimelineSubItemProps) => {
       }}
     >
       <h5
-        className="text-[13px] font-medium transition-colors duration-300"
+        className="text-[13px] font-medium transition-colors duration-200 cursor-pointer px-3 py-1 rounded-md -mx-3"
+        onClick={() => setIsOpen(!isOpen)}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
         style={{
-          color: isHovered ? "var(--text-primary)" : "var(--text-secondary)",
+          backgroundColor: isHovered ? "var(--selection-bg)" : "transparent",
+          color: isHovered
+            ? "var(--selection-text)"
+            : isOpen
+            ? "var(--text-primary)"
+            : "var(--text-secondary)",
           display: "block",
           width: "100%",
           textAlign: "left",
           margin: 0,
-          padding: 0,
+          paddingInlineStart: "0.75rem",
+          paddingInlineEnd: "0.75rem",
+          paddingTop: "0.25rem",
+          paddingBottom: "0.25rem",
         }}
       >
         {title}
       </h5>
       <AnimatePresence>
-        {isHovered && (
+        {isOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
@@ -120,7 +166,7 @@ const TimelineSubItem = ({ title, details }: TimelineSubItemProps) => {
             style={{ width: "100%", alignSelf: "flex-start" }}
           >
             <div
-              className="text-[12px] font-light lowercase leading-relaxed mt-1"
+              className="text-[12px] font-light leading-relaxed mt-1"
               style={{
                 color: "var(--text-muted)",
                 display: "block",
@@ -139,7 +185,7 @@ const TimelineSubItem = ({ title, details }: TimelineSubItemProps) => {
                   ))}
                 </>
               ) : (
-                details
+                <div>{details}</div>
               )}
             </div>
           </motion.div>
