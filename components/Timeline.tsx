@@ -7,8 +7,8 @@ import { motion, AnimatePresence } from "framer-motion";
 const TIMELINE_DATA = [
   {
     year: "2026",
-    role: "future work",
-    company: "Visionary Ventures",
+    role: "2026",
+    company: "",
     items: [
       {
         title: "Principal Designer",
@@ -23,13 +23,15 @@ const TIMELINE_DATA = [
   },
   {
     year: "2025",
-    role: "current focus",
-    company: "Keywa Newcomers Network",
+    role: "2025",
+    company: "",
     items: [
       {
-        title: "Full Stack Engineer",
-        details:
-          "↳ global gateway for international students. building scalable infrastructure.",
+        title: "Software Engineer - Keywa Newcomers Network",
+        details: [
+          "↳ global gateway for international students.",
+          "↳ building scalable infrastructure.",
+        ],
       },
       {
         title: "UX Researcher",
@@ -40,8 +42,8 @@ const TIMELINE_DATA = [
   },
   {
     year: "2024",
-    role: "leadership",
-    company: "Event Madness",
+    role: "2024",
+    company: "",
     items: [
       {
         title: "Founder @ Neodev League",
@@ -78,7 +80,7 @@ const TIMELINE_DATA = [
 
 interface TimelineSubItemProps {
   title: string;
-  details: string;
+  details: string | string[];
 }
 
 const TimelineSubItem = ({ title, details }: TimelineSubItemProps) => {
@@ -89,11 +91,21 @@ const TimelineSubItem = ({ title, details }: TimelineSubItemProps) => {
       className="group cursor-default py-1"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "flex-start",
+      }}
     >
       <h5
         className="text-[13px] font-medium transition-colors duration-300"
         style={{
           color: isHovered ? "var(--text-primary)" : "var(--text-secondary)",
+          display: "block",
+          width: "100%",
+          textAlign: "left",
+          margin: 0,
+          padding: 0,
         }}
       >
         {title}
@@ -105,13 +117,31 @@ const TimelineSubItem = ({ title, details }: TimelineSubItemProps) => {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             className="overflow-hidden"
+            style={{ width: "100%", alignSelf: "flex-start" }}
           >
-            <p
+            <div
               className="text-[12px] font-light lowercase leading-relaxed mt-1"
-              style={{ color: "var(--text-muted)" }}
+              style={{
+                color: "var(--text-muted)",
+                display: "block",
+                width: "100%",
+                textAlign: "left",
+                margin: 0,
+                padding: 0,
+              }}
             >
-              {details}
-            </p>
+              {Array.isArray(details) ? (
+                <>
+                  {details.map((detail, idx) => (
+                    <div key={idx} style={{ textAlign: "left" }}>
+                      {detail}
+                    </div>
+                  ))}
+                </>
+              ) : (
+                details
+              )}
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -134,7 +164,10 @@ const TimelineItem = ({ item, index }: TimelineItemProps) => {
       }`}
     >
       {/* Content Side */}
-      <div className={`w-[45%] ${isEven ? "text-left" : "text-right"}`}>
+      <div
+        className={`w-[45%] ${isEven ? "text-left" : "text-right"}`}
+        style={isEven ? { marginLeft: "10%" } : {}}
+      >
         <div className="mb-4">
           <h4
             className="text-[10px] font-mono uppercase tracking-[0.3em] mb-1"
@@ -142,12 +175,30 @@ const TimelineItem = ({ item, index }: TimelineItemProps) => {
           >
             {item.company}
           </h4>
+        </div>
+
+        {/* Year Header - Centered above body text */}
+        <div className="relative mb-4">
           <h3
-            className="text-lg font-medium lowercase tracking-tighter"
+            className="text-lg font-medium lowercase tracking-tighter text-center relative z-10"
             style={{ color: "var(--text-primary)" }}
           >
             {item.role}
           </h3>
+          {/* Dashed line from role header to center node */}
+          <div
+            className="absolute top-1/2 h-px z-0"
+            style={{
+              left: isEven ? "50%" : "calc(50% - (10% + 22.5% - 50%) / 0.45)",
+              width: isEven
+                ? "calc((50% - 10% - 22.5%) / 0.45)"
+                : "calc((10% + 22.5% - 50%) / 0.45)",
+              backgroundImage:
+                "repeating-linear-gradient(to right, var(--timeline-line) 0px, var(--timeline-line) 6px, transparent 6px, transparent 10px)",
+              backgroundSize: "10px 1px",
+              opacity: 0.5,
+            }}
+          />
         </div>
 
         <div className="space-y-1">
