@@ -70,7 +70,7 @@ const TIMELINE_DATA = [
       {
         title: "Co-founder - Neo Developer League",
         details: [
-          "↳ non-profit org, raised $12k for a high school programming event.",
+          "↳ non-profit org, raised $12k for 'not just a hackathon'. ",
           "↳ backed by Convictional (YC W19) and Waterloo regional school board (~ 65k students)..",
         ],
       },
@@ -82,17 +82,15 @@ const TIMELINE_DATA = [
     company: "",
     items: [
       {
-        title: "Founder @ Neodev League",
-        details: "↳ backed by Convictional (YC W19) & WRDSB (64k students).",
+        title: "Finance Organizer - IgnitionHacks 2024",
+        details: "↳ 400+ participants, 120+ submissions, $15k+ raised.",
       },
       {
-        title: "Finance Organizer @ IgnitionHacks",
-        details: "↳ 600 participants, 200 submissions, $15k in funding.",
-      },
-      {
-        title: "Founder @ Canadian Youth STEM",
-        details:
-          "↳ 300 participants, $15k in funding, hosted Nobel Prize winner Donna Strickland.",
+        title: "Organizer - Canadian Youth STEM Conference",
+        details: [
+          "↳ Nation-wide flagship youth tech summit hosted by UWaterloo, 300 students, $20k raised.",
+          "↳ Opening keynote by Donna Strickland (Nobel Laureate), backed by SHAD Canada and TRuST Network and Many Profs .",
+        ],
       },
     ],
   },
@@ -231,20 +229,6 @@ const TimelineItem = ({ item, index }: TimelineItemProps) => {
           >
             {item.role}
           </h3>
-          {/* Dashed line from role header to center node */}
-          <div
-            className="absolute top-1/2 h-px z-0"
-            style={{
-              left: isEven ? "50%" : "calc(50% - (10% + 22.5% - 50%) / 0.45)",
-              width: isEven
-                ? "calc((50% - 10% - 22.5%) / 0.45)"
-                : "calc((10% + 22.5% - 50%) / 0.45)",
-              backgroundImage:
-                "repeating-linear-gradient(to right, var(--timeline-line) 0px, var(--timeline-line) 6px, transparent 6px, transparent 10px)",
-              backgroundSize: "10px 1px",
-              opacity: 0.5,
-            }}
-          />
         </div>
 
         <div className="space-y-1">

@@ -4,10 +4,14 @@ import React from "react";
 import { Github, Twitter, Linkedin, Mail } from "lucide-react";
 
 const SOCIAL_LINKS = [
-  { label: "GitHub", href: "#", icon: Github },
-  { label: "Twitter", href: "#", icon: Twitter },
-  { label: "LinkedIn", href: "#", icon: Linkedin },
-  { label: "Email", href: "#", icon: Mail },
+  { label: "GitHub", href: "https://github.com/forkiron", icon: Github },
+  { label: "Twitter", href: "https://x.com/forkyron", icon: Twitter },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/thomas-lenh",
+    icon: Linkedin,
+  },
+  { label: "Email", href: "mailto:thomaslenh@gmail.com", icon: Mail },
 ];
 
 export default function Contact() {
