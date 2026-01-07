@@ -31,11 +31,11 @@ const TIMELINE_DATA = [
     items: [
       {
         title: "TestEraser",
-        details: "↳ Transform used tests into blank practice questions",
+        details: "→ Transform used tests into blank practice questions",
       },
       {
         title: "Product Strategy",
-        details: "↳ defining roadmap for ai-driven productivity tools.",
+        details: "→ defining roadmap for ai-driven productivity tools.",
       },
     ],
   },
@@ -45,33 +45,40 @@ const TIMELINE_DATA = [
     company: "",
     items: [
       {
-        title: "Software Engineer - Keywa Newcomers Network",
+        title: "Software Engineer at Keywa Newcomers Network",
+        logo: "/assets/keywa_logo.jpg",
         details: [
-          "↳ global gateway for international students.",
-          "↳ building scalable infrastructure.",
+          "→ global gateway for international students.",
+          "→ migrated from AWS S3 to Lightrail for cheaper hosting.",
+          "→ built and designed a dual authentication system.",
         ],
       },
       {
-        title: "Engineering - FIRST Robotics (FRC 2702)",
-        details: "↳ Prototyped a 3D computer vision recognition pipeline",
+        title: "Engineering at Rebels 2702 (FIRST Robotics)",
+        logo: "/assets/2702_logo.png",
+        details: [
+          "→ prototyped a 3D computer vision recognition pipeline.",
+          "→ top 20% in provincial tournaments.",
+        ],
       },
       {
         title: "Content/Growth",
         details: [
-          "↳ cracked virality, 10M+ views on Instagram and Tiktok in 3 months",
+          "→ cracked virality. 10M+ views on Instagram and Tiktok in 3 months.",
           <>
-            ↳ growth @{" "}
+            → previously, growth at{" "}
             <TimelineLink href="https://typeos.com/">TypeOS</TimelineLink> (YC
             X25) &{" "}
-            <TimelineLink href="https://methods.app/">instinct©</TimelineLink>
+            <TimelineLink href="https://methods.app/">instinct©</TimelineLink>.
           </>,
         ],
       },
       {
-        title: "Co-founder - Neo Developer League",
+        title: "Co-founder at Neo Developer League",
+        logo: "/assets/neodev_logo.png",
         details: [
-          "↳ non-profit org, raised $12k for 'not just a hackathon'. ",
-          "↳ backed by Convictional (YC W19) and Waterloo regional school board (~ 65k students)..",
+          "→ non-profit org, raised $12k for 'not just a hackathon'. ",
+          "→ backed by Convictional (YC W19) and Waterloo regional school board (~ 65k students).",
         ],
       },
     ],
@@ -82,14 +89,16 @@ const TIMELINE_DATA = [
     company: "",
     items: [
       {
-        title: "Finance Organizer - IgnitionHacks 2024",
-        details: "↳ 400+ participants, 120+ submissions, $15k+ raised.",
+        title: "Organizer at IgnitionHacks 2024",
+        logo: "/assets/ignitionhacks_logo.jpeg",
+        details: "→ 400+ participants, 120+ submissions, $15k+ raised.",
       },
       {
-        title: "Organizer - Canadian Youth STEM Conference",
+        title: "Organizer at Canadian Youth STEM Conference",
+        logo: "/assets/cysc_logo.avif",
         details: [
-          "↳ Nation-wide flagship youth tech summit hosted by UWaterloo, 300 students, $20k raised.",
-          "↳ Opening keynote by Donna Strickland (Nobel Laureate), backed by SHAD Canada and TRuST Network and Many Profs .",
+          "→ Nation-wide flagship youth tech summit hosted by UWaterloo, 300 students, $20k raised.",
+          "→ Opening keynote by Donna Strickland (Nobel Laureate), backed by SHAD Canada and TRuST Network and Many Profs .",
         ],
       },
     ],
@@ -102,11 +111,11 @@ const TIMELINE_DATA = [
       {
         title: "WasteOverflow",
         details:
-          "↳ IOT system using an HC-SR04 to track regional garbage levels.",
+          "→ IOT system using an HC-SR04 to track regional garbage levels.",
       },
       {
         title: "DaySync",
-        details: "↳ productivity lighting tool using an ESP32 + LED strip.",
+        details: "→ productivity lighting tool using an ESP32 + LED strip.",
       },
     ],
   },
@@ -115,9 +124,10 @@ const TIMELINE_DATA = [
 interface TimelineSubItemProps {
   title: string;
   details: string | string[] | React.ReactNode | React.ReactNode[];
+  logo?: string;
 }
 
-const TimelineSubItem = ({ title, details }: TimelineSubItemProps) => {
+const TimelineSubItem = ({ title, details, logo }: TimelineSubItemProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -142,7 +152,9 @@ const TimelineSubItem = ({ title, details }: TimelineSubItemProps) => {
             : isOpen
             ? "var(--text-primary)"
             : "var(--text-secondary)",
-          display: "block",
+          display: "flex",
+          alignItems: "center",
+          gap: "0.5rem",
           width: "100%",
           textAlign: "left",
           margin: 0,
@@ -152,7 +164,51 @@ const TimelineSubItem = ({ title, details }: TimelineSubItemProps) => {
           paddingBottom: "0.25rem",
         }}
       >
-        {title}
+        {logo && title.includes("Canadian") ? (
+          <>
+            <span>{title.split("Canadian")[0]}</span>
+            <img
+              src={logo}
+              alt=""
+              className="w-4 h-4 object-cover shrink-0"
+              style={{
+                borderRadius: logo.toLowerCase().includes("cysc") ? "50%" : "0",
+                marginRight: "-0.25rem",
+              }}
+            />
+            <span>Canadian{title.split("Canadian")[1]}</span>
+          </>
+        ) : logo && title.includes(" at ") ? (
+          <>
+            <span>{title.split(" at ")[0]} at </span>
+            <img
+              src={logo}
+              alt=""
+              className="w-4 h-4 object-cover shrink-0"
+              style={{
+                borderRadius: logo.toLowerCase().includes("cysc") ? "50%" : "0",
+                marginRight: "-0.25rem",
+              }}
+            />
+            <span>{title.split(" at ")[1]}</span>
+          </>
+        ) : (
+          <>
+            {logo && (
+              <img
+                src={logo}
+                alt=""
+                className="w-4 h-4 object-cover shrink-0"
+                style={{
+                  borderRadius: logo.toLowerCase().includes("cysc")
+                    ? "50%"
+                    : "0",
+                }}
+              />
+            )}
+            <span>{title}</span>
+          </>
+        )}
       </h5>
       <AnimatePresence>
         {isOpen && (
@@ -237,6 +293,7 @@ const TimelineItem = ({ item, index }: TimelineItemProps) => {
               key={idx}
               title={subItem.title}
               details={subItem.details}
+              logo={(subItem as any).logo}
             />
           ))}
         </div>
