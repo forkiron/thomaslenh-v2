@@ -27,7 +27,7 @@ export default function Contact() {
             className="text-sm lowercase"
             style={{ color: "var(--text-muted)" }}
           >
-            reach out if you're a founder or a fellow builder!
+            reach out builders!
           </p>
           <div className="flex gap-5 mt-6">
             {SOCIAL_LINKS.map((link) => (

@@ -52,3 +52,37 @@ html.theme-transitioning *::after {
   transition: background-color 0.3s ease, color 0.3s ease,
     border-color 0.3s ease !important;
 }
+
+/* Trophy shine animation */
+@keyframes trophyShine {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(200%) translateY(200%) rotate(45deg);
+  }
+}
+
+.trophy-icon-wrapper {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.trophy-icon-wrapper::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.9) 50%,
+    transparent 70%
+  );
+  animation: trophyShine 3s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+}

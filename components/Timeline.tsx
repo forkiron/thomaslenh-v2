@@ -30,12 +30,8 @@ const TIMELINE_DATA = [
     company: "",
     items: [
       {
-        title: "TestEraser",
-        details: "→ Transform used tests into blank practice questions",
-      },
-      {
-        title: "Product Strategy",
-        details: "→ defining roadmap for ai-driven productivity tools.",
+        title: "New year",
+        details: "→ lots to come.",
       },
     ],
   },
@@ -49,7 +45,7 @@ const TIMELINE_DATA = [
         logo: "/assets/keywa_logo.jpg",
         details: [
           "→ global gateway for international students.",
-          "→ migrated from AWS S3 to Lightrail for cheaper hosting.",
+          "→ migrated from AWS ECS to Lightrail for cheaper hosting.",
           "→ built and designed a dual authentication system.",
         ],
       },
@@ -78,7 +74,21 @@ const TIMELINE_DATA = [
         logo: "/assets/neodev_logo.png",
         details: [
           "→ non-profit org, raised $12k for 'not just a hackathon'. ",
-          "→ backed by Convictional (YC W19) and Waterloo regional school board (~ 65k students).",
+          <>
+            → backed by{" "}
+            <TimelineLink href="https://get.convictional.com/">
+              Convictional
+            </TimelineLink>{" "}
+            (YC W19) and Waterloo regional school board (~ 65k students).
+          </>,
+        ],
+      },
+      {
+        title: "Admin at Flowboat Entrepreneurship Club",
+        logo: "/assets/flowboat_logo.png",
+        details: [
+          "→ Ran Canada's largest startup incubator in 2025 with 100+ students",
+          "→ Historically, 300+ alumni, $50k+ in capital, 40+ startups",
         ],
       },
     ],
@@ -97,25 +107,47 @@ const TIMELINE_DATA = [
         title: "Organizer at Canadian Youth STEM Conference",
         logo: "/assets/cysc_logo.avif",
         details: [
-          "→ Nation-wide flagship youth tech summit hosted by UWaterloo, 300 students, $20k raised.",
-          "→ Opening keynote by Donna Strickland (Nobel Laureate), backed by SHAD Canada and TRuST Network and Many Profs .",
+          "→ nation-wide flagship youth tech summit hosted at UWaterloo.",
+          "→ 300 attendees, $20k raised for catering, resources, and venue.",
+          <>
+            → opening keynote by{" "}
+            <TimelineLink href="https://uwaterloo.ca/physics-astronomy/profile/strickla">
+              Donna Strickland
+            </TimelineLink>{" "}
+            (Nobel Laureate).
+          </>,
+          <>
+            → backed by{" "}
+            <TimelineLink href="https://www.shad.ca/">SHAD Canada</TimelineLink>{" "}
+            and TRuST Network.
+          </>,
+        ],
+      },
+      {
+        title: "Coordinator at Jack.Org Kitchener",
+        logo: "/assets/jackorg_logo.png",
+        details: [
+          "→ advocacy and philanthropy for youth mental health.",
+          "→ built a community of 300+ participants at local events, $2k+ raised.",
         ],
       },
     ],
   },
   {
     year: "2023",
-    role: "hacker era",
-    company: "2x hackathon wins",
+    role: "2023",
     items: [
       {
-        title: "WasteOverflow",
+        title: "WasteOverflow (RythmHacks)",
+        isWinner: true,
         details:
           "→ IOT system using an HC-SR04 to track regional garbage levels.",
       },
       {
-        title: "DaySync",
-        details: "→ productivity lighting tool using an ESP32 + LED strip.",
+        title: "DaySync (ClockHacks)",
+        isWinner: true,
+        details:
+          "→ smart lighting productivity platform synced with smart devices.",
       },
     ],
   },
@@ -125,9 +157,15 @@ interface TimelineSubItemProps {
   title: string;
   details: string | string[] | React.ReactNode | React.ReactNode[];
   logo?: string;
+  isWinner?: boolean;
 }
 
-const TimelineSubItem = ({ title, details, logo }: TimelineSubItemProps) => {
+const TimelineSubItem = ({
+  title,
+  details,
+  logo,
+  isWinner,
+}: TimelineSubItemProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -177,6 +215,37 @@ const TimelineSubItem = ({ title, details, logo }: TimelineSubItemProps) => {
               }}
             />
             <span>Canadian{title.split("Canadian")[1]}</span>
+            {isWinner && (
+              <span className="ml-auto shrink-0 trophy-icon-wrapper">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  style={{
+                    filter: "drop-shadow(0 0 4px rgba(251, 191, 36, 0.6))",
+                  }}
+                >
+                  <defs>
+                    <linearGradient
+                      id="trophyGradient"
+                      x1="0%"
+                      y1="0%"
+                      x2="100%"
+                      y2="100%"
+                    >
+                      <stop offset="0%" stopColor="#FFD700" />
+                      <stop offset="50%" stopColor="#FFA500" />
+                      <stop offset="100%" stopColor="#FF8C00" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94.63 1.5 1.98 2.63 3.61 2.96V19H7v2h10v-2h-4v-3.1c1.63-.33 2.98-1.46 3.61-2.96C19.08 12.63 21 10.55 21 8V7c0-1.1-.9-2-2-2zM5 8V7h2v3.82C5.84 10.4 5 9.3 5 8zm14 0c0 1.3-.84 2.4-2 2.82V7h2v1z"
+                    fill="url(#trophyGradient)"
+                  />
+                </svg>
+              </span>
+            )}
           </>
         ) : logo && title.includes(" at ") ? (
           <>
@@ -191,6 +260,37 @@ const TimelineSubItem = ({ title, details, logo }: TimelineSubItemProps) => {
               }}
             />
             <span>{title.split(" at ")[1]}</span>
+            {isWinner && (
+              <span className="ml-auto shrink-0 trophy-icon-wrapper">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  style={{
+                    filter: "drop-shadow(0 0 4px rgba(251, 191, 36, 0.6))",
+                  }}
+                >
+                  <defs>
+                    <linearGradient
+                      id="trophyGradient"
+                      x1="0%"
+                      y1="0%"
+                      x2="100%"
+                      y2="100%"
+                    >
+                      <stop offset="0%" stopColor="#FFD700" />
+                      <stop offset="50%" stopColor="#FFA500" />
+                      <stop offset="100%" stopColor="#FF8C00" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94.63 1.5 1.98 2.63 3.61 2.96V19H7v2h10v-2h-4v-3.1c1.63-.33 2.98-1.46 3.61-2.96C19.08 12.63 21 10.55 21 8V7c0-1.1-.9-2-2-2zM5 8V7h2v3.82C5.84 10.4 5 9.3 5 8zm14 0c0 1.3-.84 2.4-2 2.82V7h2v1z"
+                    fill="url(#trophyGradient)"
+                  />
+                </svg>
+              </span>
+            )}
           </>
         ) : (
           <>
@@ -206,7 +306,82 @@ const TimelineSubItem = ({ title, details, logo }: TimelineSubItemProps) => {
                 }}
               />
             )}
-            <span>{title}</span>
+            {isWinner && title.includes("(") && title.includes(")") ? (
+              <>
+                <span>{title.split("(")[0]}</span>
+                <span>
+                  ({title.split("(")[1].split(")")[0]}
+                  <span className="inline-flex align-middle ml-1 trophy-icon-wrapper">
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      style={{
+                        filter: "drop-shadow(0 0 3px rgba(251, 191, 36, 0.6))",
+                        display: "inline-block",
+                        verticalAlign: "middle",
+                        marginTop: "-5px",
+                      }}
+                    >
+                      <defs>
+                        <linearGradient
+                          id="trophyGradient"
+                          x1="0%"
+                          y1="0%"
+                          x2="100%"
+                          y2="100%"
+                        >
+                          <stop offset="0%" stopColor="#FFD700" />
+                          <stop offset="50%" stopColor="#FFA500" />
+                          <stop offset="100%" stopColor="#FF8C00" />
+                        </linearGradient>
+                      </defs>
+                      <path
+                        d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94.63 1.5 1.98 2.63 3.61 2.96V19H7v2h10v-2h-4v-3.1c1.63-.33 2.98-1.46 3.61-2.96C19.08 12.63 21 10.55 21 8V7c0-1.1-.9-2-2-2zM5 8V7h2v3.82C5.84 10.4 5 9.3 5 8zm14 0c0 1.3-.84 2.4-2 2.82V7h2v1z"
+                        fill="url(#trophyGradient)"
+                      />
+                    </svg>
+                  </span>
+                  )
+                </span>
+              </>
+            ) : (
+              <>
+                <span>{title}</span>
+                {isWinner && (
+                  <span className="ml-auto shrink-0 trophy-icon-wrapper">
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      style={{
+                        filter: "drop-shadow(0 0 4px rgba(251, 191, 36, 0.6))",
+                      }}
+                    >
+                      <defs>
+                        <linearGradient
+                          id="trophyGradient"
+                          x1="0%"
+                          y1="0%"
+                          x2="100%"
+                          y2="100%"
+                        >
+                          <stop offset="0%" stopColor="#FFD700" />
+                          <stop offset="50%" stopColor="#FFA500" />
+                          <stop offset="100%" stopColor="#FF8C00" />
+                        </linearGradient>
+                      </defs>
+                      <path
+                        d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94.63 1.5 1.98 2.63 3.61 2.96V19H7v2h10v-2h-4v-3.1c1.63-.33 2.98-1.46 3.61-2.96C19.08 12.63 21 10.55 21 8V7c0-1.1-.9-2-2-2zM5 8V7h2v3.82C5.84 10.4 5 9.3 5 8zm14 0c0 1.3-.84 2.4-2 2.82V7h2v1z"
+                        fill="url(#trophyGradient)"
+                      />
+                    </svg>
+                  </span>
+                )}
+              </>
+            )}
           </>
         )}
       </h5>
@@ -294,6 +469,7 @@ const TimelineItem = ({ item, index }: TimelineItemProps) => {
               title={subItem.title}
               details={subItem.details}
               logo={(subItem as any).logo}
+              isWinner={(subItem as any).isWinner}
             />
           ))}
         </div>

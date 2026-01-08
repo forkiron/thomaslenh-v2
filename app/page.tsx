@@ -77,7 +77,7 @@ export default function Home() {
               className="italic underline underline-offset-4"
               style={{ color: "var(--text-accent)" }}
             >
-              minimalist interfaces and optimizied systems
+              minimalist interfaces and optimized systems
             </span>
             <br />
             <span className="ml-4">

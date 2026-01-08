@@ -13,7 +13,9 @@ export default function OnlineIndicator() {
           style={{ backgroundColor: "#22c55e", opacity: 0.75 }}
         />
       </div>
-      <span style={{ color: "var(--text-muted)" }}>available for work</span>
+      <span style={{ color: "var(--text-muted)" }}>
+        seeking summer 2026 internships
+      </span>
     </div>
   );
 }
