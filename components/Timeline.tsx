@@ -31,7 +31,7 @@ const TIMELINE_DATA = [
     items: [
       {
         title: "New year",
-        details: "→ lots to come.",
+        details: "→ lots to build!",
       },
     ],
   },
