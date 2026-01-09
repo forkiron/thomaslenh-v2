@@ -242,7 +242,12 @@ export default function Projects() {
       <Nav />
 
       <main className="max-w-3xl mx-auto px-4 md:px-6 pt-12 md:pt-20 pb-20 md:pb-40">
-        <section className="mb-20 md:mb-40">
+        <motion.section
+          className="mb-20 md:mb-40"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
           <header className="mb-12">
             <p
               className="max-w-md text-sm leading-relaxed lowercase"
@@ -254,12 +259,29 @@ export default function Projects() {
 
           <div className="flex flex-col">
             {PROJECTS.map((proj, i) => (
-              <ProjectItem key={i} project={proj} />
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.6,
+                  delay: 0.2 + i * 0.15,
+                  ease: "easeOut",
+                }}
+              >
+                <ProjectItem project={proj} />
+              </motion.div>
             ))}
           </div>
-        </section>
+        </motion.section>
 
-        <Contact />
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
+        >
+          <Contact />
+        </motion.div>
       </main>
     </div>
   );
