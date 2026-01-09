@@ -67,15 +67,15 @@ export default function Contact() {
       className="pt-20"
       style={{ borderTop: "1px solid var(--border-color)" }}
     >
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
-        <div>
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 md:gap-8">
+        <div className="w-full md:w-auto">
           <p
             className="text-sm lowercase"
             style={{ color: "var(--text-muted)" }}
           >
             reach out builders!
           </p>
-          <div className="flex gap-5 mt-6">
+          <div className="flex flex-wrap gap-4 md:gap-5 mt-4 md:mt-6">
             {SOCIAL_LINKS.map((link) => (
               <a
                 key={link.label}
@@ -95,7 +95,7 @@ export default function Contact() {
             ))}
             <button
               onClick={handleCopyEmail}
-              className="flex items-center gap-1.5 text-xs font-mono transition-all duration-200 hover:scale-105 cursor-pointer"
+              className="flex items-center gap-1.5 text-xs font-mono transition-all duration-200 hover:scale-105 cursor-pointer break-all"
               style={{ color: "var(--text-subtle)" }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.color = "var(--text-primary)";
@@ -106,11 +106,15 @@ export default function Contact() {
             >
               {copied ? (
                 <>
-                  <Check size={14} />
-                  {clickCount === -1 ? "copied" : copyMessages[clickCount]}
+                  <Check size={14} className="shrink-0" />
+                  <span className="whitespace-nowrap">
+                    {clickCount === -1 ? "copied" : copyMessages[clickCount]}
+                  </span>
                 </>
               ) : (
-                "thomaslenh@gmail.com"
+                <span className="break-all md:break-normal">
+                  thomaslenh@gmail.com
+                </span>
               )}
             </button>
           </div>

@@ -48,14 +48,14 @@ const PROJECTS: Project[] = [
 
 const Nav = () => (
   <nav
-    className="flex justify-between items-center py-8 px-6 max-w-5xl mx-auto text-[13px] font-mono lowercase tracking-tighter"
+    className="flex justify-between items-center py-6 md:py-8 px-4 md:px-6 max-w-3xl mx-auto text-[12px] md:text-[13px] font-mono lowercase tracking-tighter"
     style={{ color: "var(--text-muted)" }}
   >
-    <div className="flex items-center gap-4">
+    <div className="flex items-center gap-3 md:gap-4">
       <OnlineIndicator />
       <ThemeToggle />
     </div>
-    <div className="flex gap-6">
+    <div className="flex gap-4 md:gap-6">
       <Link
         href="/"
         className="font-mono lowercase tracking-tighter transition-all duration-200"
@@ -91,7 +91,7 @@ const ProjectItem = ({ project }: { project: Project }) => {
 
   return (
     <div
-      className="flex gap-6 p-6 rounded-lg mb-6 group cursor-pointer transition-all duration-200"
+      className="flex flex-col md:flex-row gap-4 md:gap-6 p-4 md:p-6 rounded-lg mb-6 group cursor-pointer transition-all duration-200"
       style={{
         backgroundColor: isHovered
           ? "var(--selection-bg)"
@@ -103,7 +103,7 @@ const ProjectItem = ({ project }: { project: Project }) => {
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* Image/Video */}
-      <div className="shrink-0 w-64 h-48 rounded-lg overflow-hidden">
+      <div className="shrink-0 w-full md:w-64 h-48 rounded-lg overflow-hidden">
         {project.video ? (
           <video
             src={project.video}
@@ -127,7 +127,7 @@ const ProjectItem = ({ project }: { project: Project }) => {
         <div>
           {/* Title */}
           <h3
-            className="text-2xl font-medium tracking-tight mb-2"
+            className="text-xl md:text-2xl font-medium tracking-tight mb-2"
             style={{ color: "var(--text-primary)" }}
           >
             {project.name}
@@ -241,8 +241,8 @@ export default function Projects() {
     >
       <Nav />
 
-      <main className="max-w-3xl mx-auto px-6 pt-20 pb-40">
-        <section className="mb-40">
+      <main className="max-w-3xl mx-auto px-4 md:px-6 pt-12 md:pt-20 pb-20 md:pb-40">
+        <section className="mb-20 md:mb-40">
           <header className="mb-12">
             <p
               className="max-w-md text-sm leading-relaxed lowercase"

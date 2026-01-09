@@ -175,7 +175,7 @@ const TimelineSubItem = ({
       }}
     >
       <h5
-        className="text-[13px] font-medium transition-colors duration-200 cursor-pointer px-3 py-1 rounded-md -mx-3"
+        className="text-[12px] md:text-[13px] font-medium transition-colors duration-200 cursor-pointer px-2 md:px-3 py-1 rounded-md -mx-2 md:-mx-3"
         onClick={() => setIsOpen(!isOpen)}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
@@ -391,7 +391,7 @@ const TimelineSubItem = ({
             style={{ width: "100%", alignSelf: "flex-start" }}
           >
             <div
-              className="text-[12px] font-light leading-relaxed mt-1"
+              className="text-[11px] md:text-[12px] font-light leading-relaxed mt-1"
               style={{
                 color: "var(--text-muted)",
                 display: "block",
@@ -430,14 +430,16 @@ const TimelineItem = ({ item, index }: TimelineItemProps) => {
 
   return (
     <div
-      className={`relative flex items-start justify-between w-full mb-32 last:mb-0 ${
-        isEven ? "flex-row-reverse" : "flex-row"
+      className={`relative flex items-start justify-between w-full mb-20 md:mb-32 last:mb-0 ${
+        isEven ? "md:flex-row-reverse flex-row" : "flex-row"
       }`}
     >
       {/* Content Side */}
       <div
-        className={`w-[45%] ${isEven ? "text-left" : "text-right"}`}
-        style={isEven ? { marginLeft: "10%" } : {}}
+        className={`w-full md:w-[45%] pl-8 md:pl-0 ${
+          isEven ? "md:text-left text-left" : "md:text-right text-left"
+        }`}
+        style={isEven ? { marginLeft: 0 } : {}}
       >
         <div className="mb-4">
           <h4
@@ -451,7 +453,7 @@ const TimelineItem = ({ item, index }: TimelineItemProps) => {
         {/* Year Header - Centered above body text */}
         <div className="relative mb-4">
           <h3
-            className="text-lg font-medium lowercase tracking-tighter text-center relative z-10"
+            className="text-base md:text-lg font-medium lowercase tracking-tighter md:text-center text-left relative z-10"
             style={{ color: "var(--text-primary)" }}
           >
             {item.role}
@@ -472,7 +474,7 @@ const TimelineItem = ({ item, index }: TimelineItemProps) => {
       </div>
 
       {/* Center Year Marker */}
-      <div className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center pt-2">
+      <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 flex-col items-center pt-2">
         <div
           className="w-2 h-2 rounded-full z-10 transition-colors"
           style={{
@@ -487,8 +489,21 @@ const TimelineItem = ({ item, index }: TimelineItemProps) => {
         </span>
       </div>
 
+      {/* Mobile Year Marker - Left Side */}
+      <div
+        className="md:hidden absolute top-0 flex flex-col items-center"
+        style={{ paddingTop: "0.5rem", left: 0, transform: "translateX(-50%)" }}
+      >
+        <div
+          className="w-2 h-2 rounded-full z-10 transition-colors"
+          style={{
+            backgroundColor: "var(--timeline-node-bg)",
+          }}
+        />
+      </div>
+
       {/* Spacer */}
-      <div className="w-[45%]" />
+      <div className="hidden md:block w-[45%]" />
     </div>
   );
 };
@@ -502,13 +517,18 @@ export default function Timeline() {
 
   return (
     <section className="relative mb-40">
-      {/* Vertical Line */}
+      {/* Vertical Line - Desktop Center */}
       <div
-        className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px"
+        className="hidden md:block absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px"
+        style={{ backgroundColor: "var(--timeline-line)", opacity: 0.5 }}
+      />
+      {/* Vertical Line - Mobile Left */}
+      <div
+        className="md:hidden absolute left-0 top-0 bottom-0 w-px"
         style={{ backgroundColor: "var(--timeline-line)", opacity: 0.5 }}
       />
 
-      <div className="space-y-20">
+      <div className="space-y-12 md:space-y-20">
         {/* Always show recent items (2025-2026) */}
         {recentItems.map((item, i) => (
           <TimelineItem key={i} item={item} index={i} />
@@ -523,7 +543,7 @@ export default function Timeline() {
               exit={{ opacity: 0, height: 0 }}
               className="overflow-hidden"
             >
-              <div className="space-y-20 pt-20">
+              <div className="space-y-12 md:space-y-20 pt-12 md:pt-20">
                 {olderItems.map((item, i) => (
                   <TimelineItem key={i + 2} item={item} index={i + 2} />
                 ))}
