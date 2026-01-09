@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { motion } from "framer-motion";
 import Timeline from "@/components/Timeline";
 import ThemeToggle from "@/components/ThemeToggle";
 import Contact from "@/components/Contact";
@@ -61,7 +62,13 @@ export default function Home() {
 
       <main className="max-w-3xl mx-auto px-4 md:px-6 pt-8 md:pt-12 pb-12 md:pb-20">
         {/* Hero / About Me */}
-        <header id="about" className="mb-20 md:mb-32">
+        <motion.header
+          id="about"
+          className="mb-20 md:mb-32"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
           <h1
             className="text-2xl md:text-3xl font-medium lowercase tracking-tight mb-4"
             style={{ color: "var(--text-primary)" }}
@@ -88,13 +95,25 @@ export default function Home() {
               ↳ currently studying math at the university of waterloo.
             </div>
           </div>
-        </header>
+        </motion.header>
 
         {/* Timeline Section */}
-        <Timeline />
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+        >
+          <Timeline />
+        </motion.div>
 
         {/* Contact / Footer */}
-        <Contact />
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
+        >
+          <Contact />
+        </motion.div>
       </main>
     </div>
   );

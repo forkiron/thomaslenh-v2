@@ -1,8 +1,15 @@
 "use client";
 
+import { motion } from "framer-motion";
+
 export default function OnlineIndicator() {
   return (
-    <div className="flex items-center gap-2">
+    <motion.div
+      className="flex items-center gap-2"
+      initial={{ opacity: 0, scale: 0.8 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.4, delay: 0.8, ease: "easeOut" }}
+    >
       <div className="relative">
         <div
           className="w-2 h-2 rounded-full"
@@ -16,6 +23,6 @@ export default function OnlineIndicator() {
       <span style={{ color: "var(--text-muted)" }}>
         seeking summer 2026 internships
       </span>
-    </div>
+    </motion.div>
   );
 }
