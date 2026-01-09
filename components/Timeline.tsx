@@ -521,7 +521,7 @@ export default function Timeline() {
   const olderItems = TIMELINE_DATA.slice(2); // 2024, 2023
 
   return (
-    <section className="relative mb-40">
+    <section className="relative mb-24 md:mb-32">
       {/* Vertical Line - Desktop Center */}
       <div
         className="hidden md:block absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px"

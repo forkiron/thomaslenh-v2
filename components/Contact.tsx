@@ -64,7 +64,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="pt-20"
+      className="pt-12 md:pt-16"
       style={{ borderTop: "1px solid var(--border-color)" }}
     >
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 md:gap-8">
@@ -75,27 +75,29 @@ export default function Contact() {
           >
             reach out builders!
           </p>
-          <div className="flex flex-wrap gap-4 md:gap-5 mt-4 md:mt-6">
-            {SOCIAL_LINKS.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className="flex items-center gap-1.5 text-xs font-mono transition-all duration-200 hover:scale-105"
-                style={{ color: "var(--text-subtle)" }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.color = "var(--text-primary)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.color = "var(--text-subtle)";
-                }}
-              >
-                <link.icon size={14} />
-                {link.label}
-              </a>
-            ))}
+          <div className="flex flex-col md:flex-row md:flex-wrap gap-4 md:gap-5 mt-4 md:mt-6">
+            <div className="flex flex-wrap gap-4 md:gap-5">
+              {SOCIAL_LINKS.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  className="flex items-center gap-1.5 text-xs font-mono transition-all duration-200 hover:scale-105"
+                  style={{ color: "var(--text-subtle)" }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.color = "var(--text-primary)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.color = "var(--text-subtle)";
+                  }}
+                >
+                  <link.icon size={14} />
+                  {link.label}
+                </a>
+              ))}
+            </div>
             <button
               onClick={handleCopyEmail}
-              className="flex items-center gap-1.5 text-xs font-mono transition-all duration-200 hover:scale-105 cursor-pointer break-all"
+              className="flex items-center gap-1.5 text-xs font-mono transition-all duration-200 hover:scale-105 cursor-pointer md:w-auto"
               style={{ color: "var(--text-subtle)" }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.color = "var(--text-primary)";

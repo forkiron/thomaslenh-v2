@@ -10,7 +10,7 @@ import OnlineIndicator from "@/components/OnlineIndicator";
 
 const Nav = () => (
   <nav
-    className="flex justify-between items-center py-6 md:py-8 px-4 md:px-6 max-w-4xl mx-auto text-[12px] md:text-[13px] font-mono lowercase tracking-tighter"
+    className="flex justify-between items-center py-6 md:py-8 px-4 md:px-6 max-w-3xl mx-auto text-[12px] md:text-[13px] font-mono lowercase tracking-tighter"
     style={{ color: "var(--text-muted)" }}
   >
     <div className="flex items-center gap-3 md:gap-4">
@@ -59,7 +59,7 @@ export default function Home() {
     >
       <Nav />
 
-      <main className="max-w-4xl mx-auto px-4 md:px-6 pt-12 md:pt-20 pb-20 md:pb-40">
+      <main className="max-w-3xl mx-auto px-4 md:px-6 pt-8 md:pt-12 pb-12 md:pb-20">
         {/* Hero / About Me */}
         <header id="about" className="mb-20 md:mb-32">
           <h1
