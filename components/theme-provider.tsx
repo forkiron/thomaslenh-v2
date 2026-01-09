@@ -15,7 +15,7 @@ const ThemeContext = createContext<ThemeContextType>({
 });
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  // Initialize theme from localStorage immediately
+  // initialize theme from localStorage immediately
   const [theme, setTheme] = useState<Theme>(() => {
     if (typeof window !== "undefined") {
       const savedTheme = localStorage.getItem("theme") as Theme | null;
@@ -25,13 +25,13 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   });
 
   useEffect(() => {
-    // Apply theme immediately on mount (without transition)
+    // apply theme immediately on mount (without transition)
     const savedTheme = localStorage.getItem("theme") as Theme | null;
     if (savedTheme) {
       setTheme(savedTheme);
       document.documentElement.classList.toggle("dark", savedTheme === "dark");
     } else {
-      // Default to dark if no saved theme
+      // default to dark if no saved theme
       document.documentElement.classList.add("dark");
     }
   }, []);
@@ -39,10 +39,10 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const toggleTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light";
 
-    // Add transitioning class
+    // add transitioning class
     document.documentElement.classList.add("theme-transitioning");
 
-    // Update inline background to prevent white line flash
+    // update inline background to prevent white line flash
     document.documentElement.style.backgroundColor =
       newTheme === "dark" ? "#0a0a0a" : "#fafafa";
 
@@ -50,7 +50,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     localStorage.setItem("theme", newTheme);
     document.documentElement.classList.toggle("dark", newTheme === "dark");
 
-    // Remove transitioning class after transition completes
+    // remove transitioning class after transition completes
     setTimeout(() => {
       document.documentElement.classList.remove("theme-transitioning");
     }, 300);

@@ -32,11 +32,11 @@ export default function Contact() {
   };
 
   const scheduleReset = () => {
-    // Clear existing timeout if any
+    // clear existing timeout if any
     if (resetTimeoutRef.current) {
       clearTimeout(resetTimeoutRef.current);
     }
-    // Set new timeout for 5 seconds
+    // set new timeout for 5 seconds
     resetTimeoutRef.current = setTimeout(resetToEmail, 5000);
   };
 
@@ -51,12 +51,12 @@ export default function Contact() {
         console.error("Failed to copy email:", err);
       }
     } else {
-      // If already copied, cycle through messages only (0->1->2->0)
+      // if already copied, cycle through messages only (0->1->2->0)
       setClickCount((prev) => {
         if (prev === -1) return 0; // First click after "copied", go to first message
         return (prev + 1) % copyMessages.length; // Cycle through messages
       });
-      // Reset the timer on each click
+      // reset the timer on each click
       scheduleReset();
     }
   };

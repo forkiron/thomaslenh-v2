@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-// --- HELPER COMPONENT ---
+// helper component
 const TimelineLink = ({
   href,
   children,
@@ -22,7 +22,7 @@ const TimelineLink = ({
   </a>
 );
 
-// --- DATA ---
+// data
 const TIMELINE_DATA = [
   {
     year: "2026",
@@ -516,7 +516,7 @@ const TimelineItem = ({ item, index }: TimelineItemProps) => {
 export default function Timeline() {
   const [showMore, setShowMore] = useState(false);
 
-  // Split data into recent (2025-2026) and older (2023-2024)
+  // split data into recent (2025-2026) and older (2023-2024)
   const recentItems = TIMELINE_DATA.slice(0, 2); // 2026, 2025
   const olderItems = TIMELINE_DATA.slice(2); // 2024, 2023
 

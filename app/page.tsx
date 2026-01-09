@@ -7,7 +7,7 @@ import ThemeToggle from "@/components/ThemeToggle";
 import Contact from "@/components/Contact";
 import OnlineIndicator from "@/components/OnlineIndicator";
 
-// --- COMPONENTS ---
+// components
 
 const Nav = () => (
   <nav
@@ -61,7 +61,7 @@ export default function Home() {
       <Nav />
 
       <main className="max-w-3xl mx-auto px-4 md:px-6 pt-8 md:pt-12 pb-12 md:pb-20">
-        {/* Hero / About Me */}
+        {/* hero / about me */}
         <motion.header
           id="about"
           className="mb-20 md:mb-32"
@@ -97,7 +97,7 @@ export default function Home() {
           </div>
         </motion.header>
 
-        {/* Timeline Section */}
+        {/* timeline section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -106,7 +106,7 @@ export default function Home() {
           <Timeline />
         </motion.div>
 
-        {/* Contact / Footer */}
+        {/* contact / footer */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* CSS Variables for theming */
+/* css variables for theming */
 :root {
   --bg-primary: #fafafa;
   --bg-secondary: #ffffff;
@@ -44,7 +44,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Theme transition */
+/* theme transition */
 html.theme-transitioning,
 html.theme-transitioning *,
 html.theme-transitioning *::before,
@@ -53,7 +53,7 @@ html.theme-transitioning *::after {
     border-color 0.3s ease !important;
 }
 
-/* Trophy shine animation */
+/* trophy shine animation */
 @keyframes trophyShine {
   0% {
     transform: translateX(-100%) translateY(-100%) rotate(45deg);
