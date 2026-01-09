@@ -492,10 +492,15 @@ const TimelineItem = ({ item, index }: TimelineItemProps) => {
       {/* Mobile Year Marker - Left Side */}
       <div
         className="md:hidden absolute top-0 flex flex-col items-center"
-        style={{ paddingTop: "0.5rem", left: 0, transform: "translateX(-50%)" }}
+        style={{
+          paddingTop: "0.5rem",
+          left: 0,
+          transform: "translateX(-50%)",
+          zIndex: 20,
+        }}
       >
         <div
-          className="w-2 h-2 rounded-full z-10 transition-colors"
+          className="w-2 h-2 rounded-full transition-colors"
           style={{
             backgroundColor: "var(--timeline-node-bg)",
           }}
@@ -541,7 +546,7 @@ export default function Timeline() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              className="overflow-hidden"
+              className="overflow-visible md:overflow-hidden"
             >
               <div className="space-y-12 md:space-y-20 pt-12 md:pt-20">
                 {olderItems.map((item, i) => (
