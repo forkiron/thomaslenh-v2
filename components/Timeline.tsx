@@ -30,8 +30,13 @@ const TIMELINE_DATA = [
     company: "",
     items: [
       {
-        title: "New year",
-        details: "→ lots to build!",
+        title: "Engineering at Keywa Newcomers Network",
+        logo: "/assets/keywa_logo.jpg",
+        details: [
+          "→ global gateway for international students.",
+          "→ migrated from AWS ECS to Lightrail, 50% cost reduction.",
+          "→ created an end to end dual authentication system.",
+        ],
       },
     ],
   },
@@ -40,23 +45,6 @@ const TIMELINE_DATA = [
     role: "2025",
     company: "",
     items: [
-      {
-        title: "Software Engineer at Keywa Newcomers Network",
-        logo: "/assets/keywa_logo.jpg",
-        details: [
-          "→ global gateway for international students.",
-          "→ migrated from AWS ECS to Lightrail for cheaper hosting.",
-          "→ built and designed a dual authentication system.",
-        ],
-      },
-      {
-        title: "Engineering at Rebels 2702 (FIRST Robotics)",
-        logo: "/assets/2702_logo.png",
-        details: [
-          "→ prototyped a 3D computer vision recognition pipeline.",
-          "→ top 20% in provincial tournaments.",
-        ],
-      },
       {
         title: "Content/Growth",
         details: [
@@ -67,6 +55,14 @@ const TIMELINE_DATA = [
             X25) &{" "}
             <TimelineLink href="https://methods.app/">instinct©</TimelineLink>.
           </>,
+        ],
+      },
+      {
+        title: "Engineering at Rebels 2702 (FIRST Robotics)",
+        logo: "/assets/2702_logo.png",
+        details: [
+          "→ prototyped a 3D computer vision recognition pipeline.",
+          "→ competed in regional/provincial tournaments.",
         ],
       },
       {
@@ -83,6 +79,13 @@ const TIMELINE_DATA = [
           </>,
         ],
       },
+    ],
+  },
+  {
+    year: "2024",
+    role: "2024",
+    company: "",
+    items: [
       {
         title: "Admin at Flowboat Entrepreneurship Club",
         logo: "/assets/flowboat_logo.png",
@@ -91,13 +94,6 @@ const TIMELINE_DATA = [
           "→ Historically, 300+ alumni, $50k+ in capital, 40+ startups",
         ],
       },
-    ],
-  },
-  {
-    year: "2024",
-    role: "2024",
-    company: "",
-    items: [
       {
         title: "Organizer at IgnitionHacks 2024",
         logo: "/assets/ignitionhacks_logo.jpeg",

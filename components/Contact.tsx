@@ -1,7 +1,7 @@
 "use client";
 
-import React from "react";
-import { Github, Twitter, Linkedin, Mail } from "lucide-react";
+import React, { useState, useRef } from "react";
+import { Github, Twitter, Linkedin, Mail, Check } from "lucide-react";
 
 const SOCIAL_LINKS = [
   { label: "GitHub", href: "https://github.com/forkiron", icon: Github },
@@ -15,6 +15,52 @@ const SOCIAL_LINKS = [
 ];
 
 export default function Contact() {
+  const [copied, setCopied] = useState(false);
+  const [clickCount, setClickCount] = useState(0);
+  const resetTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const copyMessages = [
+    "i said its copied",
+    "pls stop clicking its copied",
+    "COPIED.",
+  ];
+
+  const resetToEmail = () => {
+    setCopied(false);
+    setClickCount(-1);
+    resetTimeoutRef.current = null;
+  };
+
+  const scheduleReset = () => {
+    // Clear existing timeout if any
+    if (resetTimeoutRef.current) {
+      clearTimeout(resetTimeoutRef.current);
+    }
+    // Set new timeout for 5 seconds
+    resetTimeoutRef.current = setTimeout(resetToEmail, 5000);
+  };
+
+  const handleCopyEmail = async () => {
+    if (!copied) {
+      try {
+        await navigator.clipboard.writeText("thomaslenh@gmail.com");
+        setCopied(true);
+        setClickCount(-1); // -1 means show "copied", 0+ means show messages
+        scheduleReset();
+      } catch (err) {
+        console.error("Failed to copy email:", err);
+      }
+    } else {
+      // If already copied, cycle through messages only (0->1->2->0)
+      setClickCount((prev) => {
+        if (prev === -1) return 0; // First click after "copied", go to first message
+        return (prev + 1) % copyMessages.length; // Cycle through messages
+      });
+      // Reset the timer on each click
+      scheduleReset();
+    }
+  };
+
   return (
     <section
       id="contact"
@@ -47,13 +93,34 @@ export default function Contact() {
                 {link.label}
               </a>
             ))}
+            <button
+              onClick={handleCopyEmail}
+              className="flex items-center gap-1.5 text-xs font-mono transition-all duration-200 hover:scale-105 cursor-pointer"
+              style={{ color: "var(--text-subtle)" }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.color = "var(--text-primary)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.color = "var(--text-subtle)";
+              }}
+            >
+              {copied ? (
+                <>
+                  <Check size={14} />
+                  {clickCount === -1 ? "copied" : copyMessages[clickCount]}
+                </>
+              ) : (
+                "thomaslenh@gmail.com"
+              )}
+            </button>
           </div>
         </div>
-        <div
-          className="text-[10px] font-mono uppercase"
-          style={{ color: "var(--text-subtle)" }}
-        >
-          © 2026 all rights reserved
+        <div className="flex flex-col items-end">
+          <img
+            src="/assets/thomas2.jpg"
+            alt="Thomas"
+            className="w-16 h-16 object-cover "
+          />
         </div>
       </div>
     </section>
