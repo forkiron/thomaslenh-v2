@@ -40,27 +40,26 @@ const PROJECTS: Project[] = [
     description:
       "A Pinterest Chrome extension that detects AI-generated art. Empowering artists to protect their work and preserve authenticity.",
     links: {
-      code: "https://github.com/yourusername/ispy",
-      devpost: "https://devpost.com/software/ispy",
+      code: "https://github.com/forkiron/ispy",
     },
   },
   {
-    name: "DaySync",
+    name: "UrbanSprout",
     badges: [],
     description:
-      "Smart lighting productivity platform synced with smart devices. A winning project from ClockHacks that enhances workspace productivity through intelligent ambient lighting control.",
+      "A cheap solution that automates and optimizes plant watering. IoT device that combines a moisture sensor, ESP8266 and a servo to detect, analyze and dispense water dependent per plant.",
     links: {
-      code: "https://github.com/yourusername/daysync",
-      devpost: "https://devpost.com/software/daysync",
+      code: "https://github.com/nikofisch/urbansprout",
+      devpost: "https://devpost.com/software/urbansprout",
     },
   },
   {
     name: "WasteOverflow",
     badges: [],
     description:
-      "IoT system using an HC-SR04 sensor to track regional garbage levels. A winning project from RythmHacks.",
+      "IoT system using an HC-SR04 sensor to track and visualize regional garbage levels. Includes a dashboard for real-time tracking using InfluxDB. A winning project at RythmHacks.",
     links: {
-      code: "https://github.com/yourusername/wasteoverflow",
+      code: "https://github.com/nikofisch/WasteOverflow",
       devpost: "https://devpost.com/software/wasteoverflow",
     },
   },
