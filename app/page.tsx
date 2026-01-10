@@ -6,6 +6,7 @@ import Timeline from "@/components/Timeline";
 import ThemeToggle from "@/components/ThemeToggle";
 import Contact from "@/components/Contact";
 import OnlineIndicator from "@/components/OnlineIndicator";
+import uwaterlooImage from "@/app/assets/uwaterloo.webp";
 
 // components
 
@@ -110,7 +111,7 @@ export default function Home() {
                 }
               >
                 <img
-                  src="/assets/uwaterloo.webp"
+                  src={uwaterlooImage.src}
                   alt="UW"
                   className="w-3.5 h-3.5 object-contain grayscale group-hover:grayscale-0 transition-all duration-200"
                 />

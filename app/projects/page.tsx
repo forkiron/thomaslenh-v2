@@ -7,6 +7,9 @@ import { Github, ExternalLink } from "lucide-react";
 import ThemeToggle from "@/components/ThemeToggle";
 import Contact from "@/components/Contact";
 import OnlineIndicator from "@/components/OnlineIndicator";
+import urbansproutImage from "@/app/assets/urbansprout.jpg";
+import wasteoverflowImage from "@/app/assets/wasteoverflow.jpg";
+import asianpuritytestImage from "@/app/assets/asianpuritytest.png";
 
 interface Project {
   name: string;
@@ -45,7 +48,7 @@ const PROJECTS: Project[] = [
   },
   {
     name: "UrbanSprout",
-    image: "/assets/urbansprout.jpg",
+    image: urbansproutImage.src,
     badges: [],
     description:
       "A cheap solution that automates and optimizes plant watering. IoT device that combines a moisture sensor, ESP8266 and a servo to detect, analyze and dispense water dependent per plant.",
@@ -56,7 +59,7 @@ const PROJECTS: Project[] = [
   },
   {
     name: "WasteOverflow",
-    image: "/assets/wasteoverflow.jpg",
+    image: wasteoverflowImage.src,
     badges: [],
     description:
       "IoT system using an HC-SR04 sensor to track and visualize regional garbage levels. Includes a dashboard for real-time tracking using InfluxDB. A winning project at RythmHacks.",
@@ -67,7 +70,7 @@ const PROJECTS: Project[] = [
   },
   {
     name: "asianpuritytest",
-    image: "/assets/asianpuritytest.png",
+    image: asianpuritytestImage.src,
     badges: [],
     description:
       "Testing virality strategies, ideation to production in 2 hours. 30k impressions and 2000+ users in a week, maintains 1000+ users per month.",

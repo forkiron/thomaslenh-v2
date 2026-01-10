@@ -2,6 +2,13 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import keywaLogo from "@/app/assets/keywa_logo.jpg";
+import logo2702 from "@/app/assets/2702_logo.png";
+import neodevLogo from "@/app/assets/neodev_logo.png";
+import flowboatLogo from "@/app/assets/flowboat_logo.png";
+import ignitionhacksLogo from "@/app/assets/ignitionhacks_logo.jpeg";
+import cyscLogo from "@/app/assets/cysc_logo.avif";
+import jackorgLogo from "@/app/assets/jackorg_logo.png";
 
 // helper component
 const TimelineLink = ({
@@ -22,6 +29,17 @@ const TimelineLink = ({
   </a>
 );
 
+// logo mapping
+const LOGO_MAP: Record<string, string> = {
+  keywa: keywaLogo.src,
+  "2702": logo2702.src,
+  neodev: neodevLogo.src,
+  flowboat: flowboatLogo.src,
+  ignitionhacks: ignitionhacksLogo.src,
+  cysc: cyscLogo.src,
+  jackorg: jackorgLogo.src,
+};
+
 // data
 const TIMELINE_DATA = [
   {
@@ -31,7 +49,7 @@ const TIMELINE_DATA = [
     items: [
       {
         title: "Engineering at Keywa Newcomers Network",
-        logo: "/assets/keywa_logo.jpg",
+        logo: "keywa",
         details: [
           "→ global gateway for international students.",
           "→ migrated from AWS ECS to Lightrail, 50% cost reduction.",
@@ -59,7 +77,7 @@ const TIMELINE_DATA = [
       },
       {
         title: "Engineering at Rebels 2702 (FIRST Robotics)",
-        logo: "/assets/2702_logo.png",
+        logo: "2702",
         details: [
           "→ prototyped a 3D computer vision recognition pipeline.",
           "→ competed in regional/provincial tournaments.",
@@ -67,7 +85,7 @@ const TIMELINE_DATA = [
       },
       {
         title: "Co-founder at Neo Developer League",
-        logo: "/assets/neodev_logo.png",
+        logo: "neodev",
         details: [
           "→ non-profit org, raised $12k for 'not just a hackathon'. ",
           <>
@@ -88,7 +106,7 @@ const TIMELINE_DATA = [
     items: [
       {
         title: "Admin at Flowboat Entrepreneurship Club",
-        logo: "/assets/flowboat_logo.png",
+        logo: "flowboat",
         details: [
           "→ Ran Canada's largest startup incubator in 2025 with 100+ students",
           "→ Historically, 300+ alumni, $50k+ in capital, 40+ startups",
@@ -96,12 +114,12 @@ const TIMELINE_DATA = [
       },
       {
         title: "Organizer at IgnitionHacks 2024",
-        logo: "/assets/ignitionhacks_logo.jpeg",
+        logo: "ignitionhacks",
         details: "→ 400+ participants, 120+ submissions, $15k+ raised.",
       },
       {
         title: "Admin at Canadian Youth STEM Conference",
-        logo: "/assets/cysc_logo.avif",
+        logo: "cysc",
         details: [
           "→ nation-wide flagship youth tech summit hosted at UWaterloo.",
           "→ 300 attendees, $20k raised for catering, resources, and venue.",
@@ -121,7 +139,7 @@ const TIMELINE_DATA = [
       },
       {
         title: "Coordinator at Jack.Org Kitchener",
-        logo: "/assets/jackorg_logo.png",
+        logo: "jackorg",
         details: [
           "→ advocacy and philanthropy for youth mental health.",
           "→ built a community of 300+ participants at local events, $2k+ raised.",
@@ -202,7 +220,7 @@ const TimelineSubItem = ({
           <>
             <span>{title.split("Canadian")[0]}</span>
             <img
-              src={logo}
+              src={LOGO_MAP[logo] || logo}
               alt=""
               className="w-4 h-4 object-cover shrink-0"
               style={{
@@ -247,7 +265,7 @@ const TimelineSubItem = ({
           <>
             <span>{title.split(" at ")[0]} at </span>
             <img
-              src={logo}
+              src={LOGO_MAP[logo] || logo}
               alt=""
               className="w-4 h-4 object-cover shrink-0"
               style={{

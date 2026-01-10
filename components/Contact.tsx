@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Github, Twitter, Linkedin, Mail, Check } from "lucide-react";
+import thomasImage from "@/app/assets/thomas2.jpg";
 
 const SOCIAL_LINKS = [
   { label: "GitHub", href: "https://github.com/forkiron", icon: Github },
@@ -263,7 +264,7 @@ export default function Contact() {
             </AnimatePresence>
             <div className="relative w-16 h-16 overflow-hidden">
               <motion.img
-                src="/assets/thomas2.jpg"
+                src={thomasImage.src}
                 alt="Thomas"
                 className="w-16 h-16 object-cover cursor-help"
                 animate={
@@ -301,7 +302,7 @@ export default function Contact() {
                     }}
                     transition={{ duration: 0.15 }}
                     style={{
-                      backgroundImage: "url(/assets/thomas2.jpg)",
+                      backgroundImage: `url(${thomasImage.src})`,
                       backgroundSize: "cover",
                       clipPath: "inset(20% 0 60% 0)",
                       filter: "hue-rotate(90deg) brightness(1.2)",
@@ -316,7 +317,7 @@ export default function Contact() {
                     }}
                     transition={{ duration: 0.15 }}
                     style={{
-                      backgroundImage: "url(/assets/thomas2.jpg)",
+                      backgroundImage: `url(${thomasImage.src})`,
                       backgroundSize: "cover",
                       clipPath: "inset(70% 0 10% 0)",
                       filter: "hue-rotate(-90deg) brightness(1.2)",
