@@ -27,7 +27,7 @@ const PROJECTS: Project[] = [
     video: "/assets/scrible.mp4",
     badges: [],
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+      "Transcribes impaired handwriting into handwritten and legible texts on a digital notepad. Built with a CRNN and CTC loss function to extract and analyze handwriting.",
     links: {
       code: "https://github.com/yourusername/scrible",
       devpost: "https://devpost.com/software/scrible",
@@ -38,10 +38,40 @@ const PROJECTS: Project[] = [
     video: "/assets/ispy.mp4",
     badges: [],
     description:
-      "a Pinterest Chrome extension that detects AI-generated art, empowering artists to protect their work and preserve authenticity.",
+      "A Pinterest Chrome extension that detects AI-generated art. Empowering artists to protect their work and preserve authenticity.",
     links: {
       code: "https://github.com/yourusername/ispy",
       devpost: "https://devpost.com/software/ispy",
+    },
+  },
+  {
+    name: "DaySync",
+    badges: [],
+    description:
+      "Smart lighting productivity platform synced with smart devices. A winning project from ClockHacks that enhances workspace productivity through intelligent ambient lighting control.",
+    links: {
+      code: "https://github.com/yourusername/daysync",
+      devpost: "https://devpost.com/software/daysync",
+    },
+  },
+  {
+    name: "WasteOverflow",
+    badges: [],
+    description:
+      "IoT system using an HC-SR04 sensor to track regional garbage levels. A winning project from RythmHacks.",
+    links: {
+      code: "https://github.com/yourusername/wasteoverflow",
+      devpost: "https://devpost.com/software/wasteoverflow",
+    },
+  },
+  {
+    name: "asianpuritytest",
+    image: "/assets/asianpuritytest.png",
+    badges: [],
+    description:
+      "Testing virality strategies, ideation to production in 2 hours. 30k impressions and 2000+ users in a week, maintains 1000+ users per month.",
+    links: {
+      demo: "https://asianpuritytest.com",
     },
   },
 ];
@@ -152,7 +182,7 @@ const ProjectItem = ({ project }: { project: Project }) => {
 
           {/* Description */}
           <p
-            className="text-sm leading-relaxed mb-4"
+            className="text-sm leading-relaxed mb-4 normal-case"
             style={{ color: "var(--text-muted)" }}
           >
             {project.description}
@@ -212,15 +242,19 @@ const ProjectItem = ({ project }: { project: Project }) => {
                   e.currentTarget.style.color = "var(--text-subtle)";
                 }}
               >
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-                Demo
+                {project.name === "asianpuritytest" ? (
+                  <ExternalLink size={14} />
+                ) : (
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                )}
+                {project.name === "asianpuritytest" ? "Website" : "Demo"}
               </a>
             )}
           </div>

@@ -100,7 +100,7 @@ const TIMELINE_DATA = [
         details: "→ 400+ participants, 120+ submissions, $15k+ raised.",
       },
       {
-        title: "Organizer at Canadian Youth STEM Conference",
+        title: "Admin at Canadian Youth STEM Conference",
         logo: "/assets/cysc_logo.avif",
         details: [
           "→ nation-wide flagship youth tech summit hosted at UWaterloo.",
