@@ -91,8 +91,31 @@ export default function Home() {
             >
               minimalist interfaces and optimized systems
             </div>
-            <div className="ml-4" style={{ whiteSpace: "nowrap" }}>
-              ↳ currently studying math at the university of waterloo.
+            <div
+              className="ml-4 flex items-center gap-1.5"
+              style={{ whiteSpace: "nowrap" }}
+            >
+              ↳ currently studying math at{" "}
+              <a
+                href="https://uwaterloo.ca"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-0.5 transition-all duration-200 group"
+                style={{ color: "var(--text-muted)" }}
+                onMouseEnter={(e) =>
+                  (e.currentTarget.style.color = "var(--text-primary)")
+                }
+                onMouseLeave={(e) =>
+                  (e.currentTarget.style.color = "var(--text-muted)")
+                }
+              >
+                <img
+                  src="/assets/uwaterloo.webp"
+                  alt="UW"
+                  className="w-3.5 h-3.5 object-contain grayscale group-hover:grayscale-0 transition-all duration-200"
+                />
+                <span>university of waterloo.</span>
+              </a>
             </div>
           </div>
         </motion.header>

@@ -45,6 +45,7 @@ const PROJECTS: Project[] = [
   },
   {
     name: "UrbanSprout",
+    image: "/assets/urbansprout.jpg",
     badges: [],
     description:
       "A cheap solution that automates and optimizes plant watering. IoT device that combines a moisture sensor, ESP8266 and a servo to detect, analyze and dispense water dependent per plant.",
@@ -55,6 +56,7 @@ const PROJECTS: Project[] = [
   },
   {
     name: "WasteOverflow",
+    image: "/assets/wasteoverflow.jpg",
     badges: [],
     description:
       "IoT system using an HC-SR04 sensor to track and visualize regional garbage levels. Includes a dashboard for real-time tracking using InfluxDB. A winning project at RythmHacks.",
@@ -117,10 +119,11 @@ const Nav = () => (
 
 const ProjectItem = ({ project }: { project: Project }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const isWasteOverflow = project.name === "WasteOverflow";
 
   return (
     <div
-      className="flex flex-col md:flex-row gap-4 md:gap-6 p-4 md:p-6 rounded-lg mb-6 group cursor-pointer transition-all duration-200"
+      className="flex flex-col md:flex-row gap-4 md:gap-6 p-4 md:p-6 rounded-lg mb-6 group transition-all duration-200"
       style={{
         backgroundColor: isHovered
           ? "var(--selection-bg)"
@@ -146,7 +149,16 @@ const ProjectItem = ({ project }: { project: Project }) => {
           <img
             src={project.image}
             alt={project.name}
-            className="w-full h-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-110"
+            className={`w-full h-full object-cover transition-transform duration-300 ease-in-out ${
+              !isWasteOverflow ? "group-hover:scale-110" : ""
+            }`}
+            style={{
+              transform: isWasteOverflow
+                ? isHovered
+                  ? "scale(1.32)"
+                  : "scale(1.2)"
+                : undefined,
+            }}
           />
         ) : null}
       </div>
@@ -196,7 +208,7 @@ const ProjectItem = ({ project }: { project: Project }) => {
                 href={project.links.code}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 text-xs font-mono transition-all duration-200 hover:scale-105"
+                className="flex items-center gap-1.5 text-xs font-mono transition-all duration-200 hover:scale-105 cursor-pointer"
                 style={{ color: "var(--text-subtle)" }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.color = "var(--text-primary)";
@@ -214,7 +226,7 @@ const ProjectItem = ({ project }: { project: Project }) => {
                 href={project.links.devpost}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 text-xs font-mono transition-all duration-200 hover:scale-105"
+                className="flex items-center gap-1.5 text-xs font-mono transition-all duration-200 hover:scale-105 cursor-pointer"
                 style={{ color: "var(--text-subtle)" }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.color = "var(--text-primary)";
@@ -232,7 +244,7 @@ const ProjectItem = ({ project }: { project: Project }) => {
                 href={project.links.demo}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 text-xs font-mono transition-all duration-200 hover:scale-105"
+                className="flex items-center gap-1.5 text-xs font-mono transition-all duration-200 hover:scale-105 cursor-pointer"
                 style={{ color: "var(--text-subtle)" }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.color = "var(--text-primary)";
@@ -286,7 +298,7 @@ export default function Projects() {
               className="max-w-md text-sm leading-relaxed lowercase"
               style={{ color: "var(--text-muted)" }}
             >
-              a collection of things i've built.
+              my archive.
             </p>
           </header>
 

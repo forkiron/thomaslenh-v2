@@ -3,6 +3,14 @@
 import { motion } from "framer-motion";
 
 export default function OnlineIndicator() {
+  const handleScrollToContact = () => {
+    const contactElement = document.getElementById("contact");
+    if (contactElement) {
+      window.location.hash = "#contact";
+      contactElement.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
     <div className="flex items-center gap-2">
       <motion.div
@@ -28,7 +36,9 @@ export default function OnlineIndicator() {
           style={{ backgroundColor: "#22c55e", opacity: 0.75 }}
         />
       </motion.div>
-      <motion.span
+      <motion.button
+        onClick={handleScrollToContact}
+        className="cursor-pointer transition-colors duration-200 bg-transparent border-none p-0"
         style={{ color: "var(--text-muted)" }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -36,9 +46,15 @@ export default function OnlineIndicator() {
           duration: 0.3,
           delay: 1.8,
         }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.color = "var(--text-primary)";
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.color = "var(--text-muted)";
+        }}
       >
         seeking summer 2026 internships
-      </motion.span>
+      </motion.button>
     </div>
   );
 }
