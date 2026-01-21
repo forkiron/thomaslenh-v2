@@ -53,7 +53,7 @@ export default function OnlineIndicator() {
           e.currentTarget.style.color = "var(--text-muted)";
         }}
       >
-        seeking summer 2026 internships
+        seeking part time work
       </motion.button>
     </div>
   );

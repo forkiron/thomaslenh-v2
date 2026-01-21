@@ -9,6 +9,7 @@ import flowboatLogo from "@/app/assets/flowboat_logo.png";
 import ignitionhacksLogo from "@/app/assets/ignitionhacks_logo.jpeg";
 import cyscLogo from "@/app/assets/cysc_logo.avif";
 import jackorgLogo from "@/app/assets/jackorg_logo.png";
+import convictionalLogo from "@/app/assets/convictional_logo.jpeg";
 
 // helper component
 const TimelineLink = ({
@@ -38,6 +39,7 @@ const LOGO_MAP: Record<string, string> = {
   ignitionhacks: ignitionhacksLogo.src,
   cysc: cyscLogo.src,
   jackorg: jackorgLogo.src,
+  convictional: convictionalLogo.src,
 };
 
 // data
@@ -47,6 +49,11 @@ const TIMELINE_DATA = [
     role: "2026",
     company: "",
     items: [
+      {
+        title: "Engineering at Convictional (YC W19)",
+        logo: "convictional",
+        details: ["→ incoming summer 2026"],
+      },
       {
         title: "Engineering at Keywa Newcomers Network",
         logo: "keywa",
