@@ -10,6 +10,7 @@ import OnlineIndicator from "@/components/OnlineIndicator";
 import urbansproutImage from "@/app/assets/urbansprout.jpg";
 import wasteoverflowImage from "@/app/assets/wasteoverflow.jpg";
 import asianpuritytestImage from "@/app/assets/asianpuritytest.png";
+import pindexImage from "@/app/assets/pindex.png";
 
 interface Project {
   name: string;
@@ -25,6 +26,17 @@ interface Project {
 }
 
 const PROJECTS: Project[] = [
+  {
+    name: "Pindex",
+    image: pindexImage.src,
+    badges: ["Nexhacks winner"],
+    description:
+      "Polymarket says bet on anything, why not bet on everything? Pindex lets anyone create agentic index funds that automatically diversify risk across related prediction markets.",
+    links: {
+      code: "https://github.com/danielp1218/Pindex",
+      demo: "https://pindex.tech",
+    },
+  },
   {
     name: "Scrible",
     video: "/assets/scrible.mp4",
@@ -60,7 +72,7 @@ const PROJECTS: Project[] = [
   {
     name: "WasteOverflow",
     image: wasteoverflowImage.src,
-    badges: [],
+    badges: ["RythmHacks winner"],
     description:
       "IoT system using an HC-SR04 sensor to track and visualize regional garbage levels. Includes a dashboard for real-time tracking using InfluxDB. A winning project at RythmHacks.",
     links: {
@@ -256,7 +268,7 @@ const ProjectItem = ({ project }: { project: Project }) => {
                   e.currentTarget.style.color = "var(--text-subtle)";
                 }}
               >
-                {project.name === "asianpuritytest" ? (
+                {project.name === "asianpuritytest" || project.name === "pindex" ? (
                   <ExternalLink size={14} />
                 ) : (
                   <svg
@@ -268,7 +280,7 @@ const ProjectItem = ({ project }: { project: Project }) => {
                     <path d="M8 5v14l11-7z" />
                   </svg>
                 )}
-                {project.name === "asianpuritytest" ? "Website" : "Demo"}
+                {project.name === "asianpuritytest" || project.name === "pindex" ? "Website" : "Demo"}
               </a>
             )}
           </div>
