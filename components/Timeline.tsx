@@ -7,9 +7,7 @@ import logo2702 from "@/app/assets/2702_logo.png";
 import neodevLogo from "@/app/assets/neodev_logo.png";
 import flowboatLogo from "@/app/assets/flowboat_logo.png";
 import ignitionhacksLogo from "@/app/assets/ignitionhacks_logo.jpeg";
-import cyscLogo from "@/app/assets/cysc_logo.avif";
 import jackorgLogo from "@/app/assets/jackorg_logo.png";
-import convictionalLogo from "@/app/assets/convictional_logo.jpeg";
 
 // helper component
 const TimelineLink = ({
@@ -37,9 +35,9 @@ const LOGO_MAP: Record<string, string> = {
   neodev: neodevLogo.src,
   flowboat: flowboatLogo.src,
   ignitionhacks: ignitionhacksLogo.src,
-  cysc: cyscLogo.src,
+  cysc: "/cysc_logo.avif",
   jackorg: jackorgLogo.src,
-  convictional: convictionalLogo.src,
+  viggle: "/assets/viggle.png",
 };
 
 // data
@@ -50,8 +48,8 @@ const TIMELINE_DATA = [
     company: "",
     items: [
       {
-        title: "Engineering at Convictional (YC W19)",
-        logo: "convictional",
+        title: "Viggle (a16z)",
+        logo: "viggle",
         details: ["→ incoming summer 2026"],
       },
       {
