@@ -8,6 +8,7 @@ import neodevLogo from "@/app/assets/neodev_logo.png";
 import flowboatLogo from "@/app/assets/flowboat_logo.png";
 import ignitionhacksLogo from "@/app/assets/ignitionhacks_logo.jpeg";
 import jackorgLogo from "@/app/assets/jackorg_logo.png";
+import viggleLogo from "@/app/assets/viggle.png";
 
 // helper component
 const TimelineLink = ({
@@ -37,7 +38,7 @@ const LOGO_MAP: Record<string, string> = {
   ignitionhacks: ignitionhacksLogo.src,
   cysc: "/cysc_logo.avif",
   jackorg: jackorgLogo.src,
-  viggle: "/assets/viggle.png",
+  viggle: viggleLogo.src,
 };
 
 // data
@@ -48,7 +49,7 @@ const TIMELINE_DATA = [
     company: "",
     items: [
       {
-        title: "Viggle (a16z)",
+        title: "Member of Technical Staff at Viggle (a16z)",
         logo: "viggle",
         details: ["→ incoming summer 2026"],
       },
@@ -187,6 +188,7 @@ const TimelineSubItem = ({
 }: TimelineSubItemProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+  const logoSrc = logo ? LOGO_MAP[logo] || logo : "";
 
   return (
     <div
@@ -207,8 +209,8 @@ const TimelineSubItem = ({
           color: isHovered
             ? "var(--selection-text)"
             : isOpen
-            ? "var(--text-primary)"
-            : "var(--text-secondary)",
+              ? "var(--text-primary)"
+              : "var(--text-secondary)",
           display: "flex",
           alignItems: "center",
           gap: "0.5rem",
@@ -225,7 +227,7 @@ const TimelineSubItem = ({
           <>
             <span>{title.split("Canadian")[0]}</span>
             <img
-              src={LOGO_MAP[logo] || logo}
+              src={logoSrc}
               alt=""
               className="w-4 h-4 object-cover shrink-0"
               style={{
@@ -270,7 +272,7 @@ const TimelineSubItem = ({
           <>
             <span>{title.split(" at ")[0]} at </span>
             <img
-              src={LOGO_MAP[logo] || logo}
+              src={logoSrc}
               alt=""
               className="w-4 h-4 object-cover shrink-0"
               style={{
@@ -311,11 +313,56 @@ const TimelineSubItem = ({
               </span>
             )}
           </>
+        ) : logo && title.includes(" @ ") ? (
+          <>
+            <span>{title.split(" @ ")[0]} @ </span>
+            <img
+              src={logoSrc}
+              alt=""
+              className="w-4 h-4 object-cover shrink-0"
+              style={{
+                borderRadius: logo.toLowerCase().includes("cysc") ? "50%" : "0",
+                marginRight: "-0.25rem",
+              }}
+            />
+            <span>{title.split(" @ ")[1]}</span>
+            {isWinner && (
+              <span className="ml-auto shrink-0 trophy-icon-wrapper">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  style={{
+                    filter: "drop-shadow(0 0 4px rgba(251, 191, 36, 0.6))",
+                  }}
+                >
+                  <defs>
+                    <linearGradient
+                      id="trophyGradient"
+                      x1="0%"
+                      y1="0%"
+                      x2="100%"
+                      y2="100%"
+                    >
+                      <stop offset="0%" stopColor="#FFD700" />
+                      <stop offset="50%" stopColor="#FFA500" />
+                      <stop offset="100%" stopColor="#FF8C00" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94.63 1.5 1.98 2.63 3.61 2.96V19H7v2h10v-2h-4v-3.1c1.63-.33 2.98-1.46 3.61-2.96C19.08 12.63 21 10.55 21 8V7c0-1.1-.9-2-2-2zM5 8V7h2v3.82C5.84 10.4 5 9.3 5 8zm14 0c0 1.3-.84 2.4-2 2.82V7h2v1z"
+                    fill="url(#trophyGradient)"
+                  />
+                </svg>
+              </span>
+            )}
+          </>
         ) : (
           <>
             {logo && (
               <img
-                src={logo}
+                src={logoSrc}
                 alt=""
                 className="w-4 h-4 object-cover shrink-0"
                 style={{
