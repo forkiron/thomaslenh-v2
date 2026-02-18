@@ -9,6 +9,7 @@ import flowboatLogo from "@/app/assets/flowboat_logo.png";
 import ignitionhacksLogo from "@/app/assets/ignitionhacks_logo.jpeg";
 import jackorgLogo from "@/app/assets/jackorg_logo.png";
 import viggleLogo from "@/app/assets/viggle.png";
+import plotsLogo from "@/app/assets/plots.jpg";
 
 // helper component
 const TimelineLink = ({
@@ -39,6 +40,7 @@ const LOGO_MAP: Record<string, string> = {
   cysc: "/cysc_logo.avif",
   jackorg: jackorgLogo.src,
   viggle: viggleLogo.src,
+  plots: plotsLogo.src,
 };
 
 // data
@@ -54,7 +56,12 @@ const TIMELINE_DATA = [
         details: ["→ incoming summer 2026"],
       },
       {
-        title: "Engineering at Keywa Newcomers Network",
+        title: "Software Engineer at plots (a16z)",
+        logo: "plots",
+        details: ["→ shipping features for 400k+ users"],
+      },
+      {
+        title: "Software Engineer at Keywa Newcomers",
         logo: "keywa",
         details: [
           "→ global gateway for international students.",
