@@ -2,19 +2,8 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Github, Twitter, Linkedin, Mail, Check } from "lucide-react";
+import { Check } from "lucide-react";
 import thomasImage from "@/app/assets/thomas2.jpg";
-
-const SOCIAL_LINKS = [
-  { label: "GitHub", href: "https://github.com/forkiron", icon: Github },
-  { label: "Twitter", href: "https://x.com/forkyron", icon: Twitter },
-  {
-    label: "LinkedIn",
-    href: "https://www.linkedin.com/in/thomas-lenh",
-    icon: Linkedin,
-  },
-  { label: "Email", href: "mailto:thomaslenh@gmail.com", icon: Mail },
-];
 
 const CHARS = "ABCDEFGHIKLMNOPQRSTVXYZ0123456789!@#$%^&*()_+";
 
@@ -158,69 +147,35 @@ export default function Contact() {
       className="pt-12 md:pt-16"
       style={{ borderTop: "1px solid var(--border-color)" }}
     >
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 md:gap-8">
-        <div className="w-full md:w-auto">
-          <p
-            className="text-sm lowercase"
-            style={{ color: "var(--text-muted)" }}
+      <div className="flex flex-col-reverse md:flex-row justify-between items-start md:items-end gap-6 md:gap-8">
+        <div className="w-full md:w-auto md:self-end">
+          <button
+            onClick={handleCopyEmail}
+            className="flex items-center gap-1.5 text-xs font-mono cursor-pointer text-left text-[var(--text-subtle)] transition-[color,filter] duration-200 ease-out hover:text-[var(--text-primary)] hover:[filter:drop-shadow(0_0_10px_color-mix(in_oklab,var(--text-primary)_35%,transparent))]"
           >
-            reach out builders!
-          </p>
-          <div className="flex flex-col md:flex-row md:flex-wrap gap-4 md:gap-5 mt-4 md:mt-6">
-            <div className="flex flex-wrap gap-4 md:gap-5">
-              {SOCIAL_LINKS.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  className="flex items-center gap-1.5 text-xs font-mono transition-all duration-200 hover:scale-105"
-                  style={{ color: "var(--text-subtle)" }}
-                  onMouseEnter={(e) =>
-                    (e.currentTarget.style.color = "var(--text-primary)")
-                  }
-                  onMouseLeave={(e) =>
-                    (e.currentTarget.style.color = "var(--text-subtle)")
-                  }
-                >
-                  <link.icon size={14} />
-                  <DigitalText text={link.label} active={isAnimating} />
-                </a>
-              ))}
-            </div>
-            <button
-              onClick={handleCopyEmail}
-              className="flex items-center gap-1.5 text-xs font-mono transition-all duration-200 hover:scale-105 cursor-pointer md:w-auto"
-              style={{ color: "var(--text-subtle)" }}
-              onMouseEnter={(e) =>
-                (e.currentTarget.style.color = "var(--text-primary)")
-              }
-              onMouseLeave={(e) =>
-                (e.currentTarget.style.color = "var(--text-subtle)")
-              }
-            >
-              {copied ? (
-                <>
-                  <Check size={14} className="shrink-0" />
-                  <span className="whitespace-nowrap">
-                    {clickCount === -1 ? (
-                      <DigitalText text="copied" active={isAnimating} />
-                    ) : (
-                      <DigitalText
-                        text={copyMessages[clickCount]}
-                        active={isAnimating}
-                      />
-                    )}
-                  </span>
-                </>
-              ) : (
-                <span className="break-all md:break-normal">
-                  <DigitalText
-                    text="thomaslenh@gmail.com"
-                    active={isAnimating}
-                  />
+            {copied ? (
+              <>
+                <Check size={18} className="shrink-0" />
+                <span className="whitespace-nowrap">
+                  {clickCount === -1 ? (
+                    <DigitalText text="copied" active={isAnimating} />
+                  ) : (
+                    <DigitalText
+                      text={copyMessages[clickCount]}
+                      active={isAnimating}
+                    />
+                  )}
                 </span>
-              )}
-            </button>
-          </div>
+              </>
+            ) : (
+              <span className="break-all md:break-normal">
+                <DigitalText
+                  text="thomaslenh@gmail.com"
+                  active={isAnimating}
+                />
+              </span>
+            )}
+          </button>
         </div>
         <div className="flex flex-col items-end">
           <div

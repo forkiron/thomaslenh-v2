@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import Timeline from "@/components/Timeline";
 import ThemeToggle from "@/components/ThemeToggle";
 import Contact from "@/components/Contact";
-import OnlineIndicator from "@/components/OnlineIndicator";
+import NavSocial from "@/components/NavSocial";
 import uwaterlooImage from "@/app/assets/uwaterloo.webp";
 
 // components
@@ -15,8 +15,8 @@ const Nav = () => (
     className="flex justify-between items-center py-6 md:py-8 px-4 md:px-6 max-w-3xl mx-auto text-[12px] md:text-[13px] font-mono lowercase tracking-tighter"
     style={{ color: "var(--text-muted)" }}
   >
-    <div className="flex items-center gap-3 md:gap-4">
-      <OnlineIndicator />
+    <div className="flex items-center gap-3 md:gap-4 flex-wrap">
+      <NavSocial />
       <ThemeToggle />
     </div>
     <div className="flex gap-4 md:gap-6">

@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Github, ExternalLink } from "lucide-react";
 import ThemeToggle from "@/components/ThemeToggle";
 import Contact from "@/components/Contact";
-import OnlineIndicator from "@/components/OnlineIndicator";
+import NavSocial from "@/components/NavSocial";
 import urbansproutImage from "@/app/assets/urbansprout.jpg";
 import wasteoverflowImage from "@/app/assets/wasteoverflow.jpg";
 import asianpuritytestImage from "@/app/assets/asianpuritytest.png";
@@ -109,8 +109,8 @@ const Nav = () => (
     className="flex justify-between items-center py-6 md:py-8 px-4 md:px-6 max-w-3xl mx-auto text-[12px] md:text-[13px] font-mono lowercase tracking-tighter"
     style={{ color: "var(--text-muted)" }}
   >
-    <div className="flex items-center gap-3 md:gap-4">
-      <OnlineIndicator />
+    <div className="flex items-center gap-3 md:gap-4 flex-wrap">
+      <NavSocial />
       <ThemeToggle />
     </div>
     <div className="flex gap-4 md:gap-6">
@@ -257,16 +257,9 @@ const ProjectItem = ({ project }: { project: Project }) => {
                 href={project.links.code}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 text-xs font-mono transition-all duration-200 hover:scale-105 cursor-pointer"
-                style={{ color: "var(--text-subtle)" }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.color = "var(--text-primary)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.color = "var(--text-subtle)";
-                }}
+                className="flex items-center gap-1.5 text-xs font-mono cursor-pointer text-[var(--text-subtle)] transition-[color,filter] duration-200 ease-out hover:text-[var(--text-primary)] hover:[filter:drop-shadow(0_0_10px_color-mix(in_oklab,var(--text-primary)_35%,transparent))]"
               >
-                <Github size={14} />
+                <Github size={18} />
                 GitHub
               </a>
             )}
@@ -275,16 +268,9 @@ const ProjectItem = ({ project }: { project: Project }) => {
                 href={project.links.devpost}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 text-xs font-mono transition-all duration-200 hover:scale-105 cursor-pointer"
-                style={{ color: "var(--text-subtle)" }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.color = "var(--text-primary)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.color = "var(--text-subtle)";
-                }}
+                className="flex items-center gap-1.5 text-xs font-mono cursor-pointer text-[var(--text-subtle)] transition-[color,filter] duration-200 ease-out hover:text-[var(--text-primary)] hover:[filter:drop-shadow(0_0_10px_color-mix(in_oklab,var(--text-primary)_35%,transparent))]"
               >
-                <ExternalLink size={14} />
+                <ExternalLink size={18} />
                 Devpost
               </a>
             )}
@@ -293,21 +279,14 @@ const ProjectItem = ({ project }: { project: Project }) => {
                 href={project.links.demo}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 text-xs font-mono transition-all duration-200 hover:scale-105 cursor-pointer"
-                style={{ color: "var(--text-subtle)" }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.color = "var(--text-primary)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.color = "var(--text-subtle)";
-                }}
+                className="flex items-center gap-1.5 text-xs font-mono cursor-pointer text-[var(--text-subtle)] transition-[color,filter] duration-200 ease-out hover:text-[var(--text-primary)] hover:[filter:drop-shadow(0_0_10px_color-mix(in_oklab,var(--text-primary)_35%,transparent))]"
               >
                 {project.name === "asianpuritytest" || project.name === "pindex" ? (
-                  <ExternalLink size={14} />
+                  <ExternalLink size={18} />
                 ) : (
                   <svg
-                    width="14"
-                    height="14"
+                    width="18"
+                    height="18"
                     viewBox="0 0 24 24"
                     fill="currentColor"
                   >
