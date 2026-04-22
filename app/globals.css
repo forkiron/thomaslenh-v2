@@ -68,6 +68,23 @@ html.theme-transitioning *::after {
   box-shadow: none;
 }
 
+/* inline link — left to right underline */
+.sweep-underline {
+  position: relative;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: #a1a1aa;
+  background: linear-gradient(to right, #1a1a1a, #1a1a1a) no-repeat left bottom;
+  background-size: 0% 1px;
+  transition: background-size 0.4s ease, color 0.3s ease;
+}
+
+.sweep-underline:hover {
+  text-decoration-color: transparent;
+  background-size: 100% 1px;
+  color: #1a1a1a;
+}
+
 /* trophy shine animation */
 @keyframes trophyShine {
   0% {

@@ -2,7 +2,7 @@
 
 import React from "react";
 import viggleLogo from "@/app/assets/vigglenew.webp";
-import plotsLogo from "@/app/assets/plots.jpg";
+import plotsLogo from "@/app/assets/plots_new.png";
 import keywaLogo from "@/app/assets/keywa_logo.jpg";
 
 const WORK_DATA = [
@@ -19,6 +19,7 @@ const WORK_DATA = [
     period: "jan 2026 - april 2026",
     logo: plotsLogo.src,
     href: "https://plots.events",
+    smallLogo: true,
   },
   {
     company: "Keywa Newcomers",
@@ -48,11 +49,21 @@ export default function WorkExperience() {
             rel="noopener noreferrer"
             className="work-card flex items-center gap-4 px-4 py-3.5 rounded-xl cursor-pointer no-underline"
           >
-            <img
-              src={job.logo}
-              alt={job.company}
-              className="w-11 h-11 md:w-12 md:h-12 rounded-xl object-cover shrink-0"
-            />
+            {job.smallLogo ? (
+              <div className="w-11 h-11 md:w-12 md:h-12 rounded-xl shrink-0 flex items-center justify-center bg-black">
+                <img
+                  src={job.logo}
+                  alt={job.company}
+                  className="w-9 h-9 md:w-10 md:h-10 object-contain"
+                />
+              </div>
+            ) : (
+              <img
+                src={job.logo}
+                alt={job.company}
+                className="w-11 h-11 md:w-12 md:h-12 rounded-xl object-cover shrink-0"
+              />
+            )}
             <div className="flex-1 min-w-0">
               <span
                 className="text-[14px] md:text-[15px] font-semibold lowercase tracking-tight block"

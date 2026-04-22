@@ -7,6 +7,7 @@ import Contact from "@/components/Contact";
 import NavSocial from "@/components/NavSocial";
 import uwaterlooImage from "@/app/assets/uwaterloo.webp";
 import WorkExperience from "@/components/WorkExperience";
+import Projects from "@/components/Projects";
 
 // components
 
@@ -112,6 +113,8 @@ export default function Home() {
           </div>
 
           <WorkExperience />
+
+          <Projects />
         </motion.header>
 
         {/* timeline section */}
