@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Github, ExternalLink } from "lucide-react";
-import ThemeToggle from "@/components/ThemeToggle";
 import Contact from "@/components/Contact";
 import NavSocial from "@/components/NavSocial";
 import urbansproutImage from "@/app/assets/urbansprout.jpg";
@@ -111,7 +110,6 @@ const Nav = () => (
   >
     <div className="flex items-center gap-3 md:gap-4 flex-wrap">
       <NavSocial />
-      <ThemeToggle />
     </div>
     <div className="flex gap-4 md:gap-6">
       <Link

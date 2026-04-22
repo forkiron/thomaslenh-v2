@@ -8,7 +8,7 @@ import neodevLogo from "@/app/assets/neodev_logo.png";
 import flowboatLogo from "@/app/assets/flowboat_logo.png";
 import ignitionhacksLogo from "@/app/assets/ignitionhacks_logo.jpeg";
 import jackorgLogo from "@/app/assets/jackorg_logo.png";
-import viggleLogo from "@/app/assets/viggle.png";
+import viggleLogo from "@/app/assets/vigglenew.webp";
 import plotsLogo from "@/app/assets/plots.jpg";
 
 // helper component

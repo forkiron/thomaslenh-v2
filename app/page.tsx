@@ -3,10 +3,10 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import Timeline from "@/components/Timeline";
-import ThemeToggle from "@/components/ThemeToggle";
 import Contact from "@/components/Contact";
 import NavSocial from "@/components/NavSocial";
 import uwaterlooImage from "@/app/assets/uwaterloo.webp";
+import WorkExperience from "@/components/WorkExperience";
 
 // components
 
@@ -17,7 +17,6 @@ const Nav = () => (
   >
     <div className="flex items-center gap-3 md:gap-4 flex-wrap">
       <NavSocial />
-      <ThemeToggle />
     </div>
     <div className="flex gap-4 md:gap-6">
       <Link
@@ -83,15 +82,7 @@ export default function Home() {
               fontSize: "clamp(0.75rem, 2.5vw, 1rem)",
             }}
           >
-            <div style={{ whiteSpace: "nowrap" }}>
-              engineer and designer based in waterloo and toronto, focusing on
-            </div>
-            <div
-              className="italic underline underline-offset-4"
-              style={{ color: "var(--text-accent)", whiteSpace: "nowrap" }}
-            >
-              minimalist interfaces and optimized systems
-            </div>
+            <div className="mb-1">engineer based in waterloo and toronto.</div>
             <div
               className="ml-4 flex items-center gap-1.5"
               style={{ whiteSpace: "nowrap" }}
@@ -119,6 +110,8 @@ export default function Home() {
               </a>
             </div>
           </div>
+
+          <WorkExperience />
         </motion.header>
 
         {/* timeline section */}
