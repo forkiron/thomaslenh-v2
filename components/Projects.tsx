@@ -185,9 +185,7 @@ export default function Projects() {
             >
               {project.descriptionParts
                 ? project.descriptionParts.map((part, i) =>
-                    part.br ? (
-                      <br key={i} />
-                    ) : part.href ? (
+                    part.href ? (
                       <span
                         key={i}
                         onClick={(e) => {
