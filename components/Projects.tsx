@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Github, ExternalLink, Newspaper } from "lucide-react";
+import { Github, ExternalLink, Newspaper, Youtube } from "lucide-react";
 import vitImage from "@/app/assets/vit.jpeg";
 import vitZoomImage from "@/app/assets/vitzoom.png";
 import anternoImage from "@/app/assets/anternomain.png";
@@ -18,6 +18,7 @@ const PROJECTS_DATA = [
     image: vitImage.src,
     zoomImage: vitZoomImage.src,
     github: "https://github.com/LucasHJin/vit",
+    youtube: "https://www.youtube.com/watch?v=phS28hhJSP8",
     demo: "https://vit-editor.vercel.app/",
     href: "https://vit-editor.vercel.app/",
   },
@@ -160,6 +161,19 @@ export default function Projects() {
                     style={{ color: "#71717a" }}
                   >
                     <Github size={14} />
+                  </span>
+                )}
+                {project.youtube && (
+                  <span
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      window.open(project.youtube, "_blank");
+                    }}
+                    className="flex items-center transition-opacity hover:opacity-60 cursor-pointer"
+                    style={{ color: "#71717a" }}
+                  >
+                    <Youtube size={14} />
                   </span>
                 )}
                 {project.demo && (
