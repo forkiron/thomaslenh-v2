@@ -28,6 +28,13 @@
   --font-project-body: 0.9rem;
 }
 
+@media (max-width: 640px) {
+  :root {
+    --font-hero: 2.25rem;
+    --font-bio: 0.85rem;
+  }
+}
+
 .dark {
   --bg-primary: #0a0a0a;
   --bg-secondary: #0a0a0a;
