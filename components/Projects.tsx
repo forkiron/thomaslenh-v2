@@ -109,7 +109,7 @@ export default function Projects() {
                     <img
                       src={project.zoomImage}
                       alt={project.name}
-                      className="w-full h-full object-cover absolute inset-0 opacity-0 transition-all duration-500 ease-out group-hover:opacity-100 group-hover:scale-105"
+                      className="w-full h-full object-cover absolute inset-0 opacity-0 transition-all duration-500 ease-out group-hover:opacity-100 group-hover:scale-110"
                     />
                   )}
                 </>

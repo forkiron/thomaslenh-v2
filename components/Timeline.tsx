@@ -8,6 +8,7 @@ import neodevLogo from "@/app/assets/neodev_logo.png";
 import flowboatLogo from "@/app/assets/flowboat_logo.png";
 import ignitionhacksLogo from "@/app/assets/ignitionhacks_logo.jpeg";
 import jackorgLogo from "@/app/assets/jackorg_logo.png";
+import cyscLogo from "@/app/assets/cysc_logo.png";
 import viggleLogo from "@/app/assets/vigglenew.webp";
 import plotsLogo from "@/app/assets/plots_new.png";
 
@@ -37,7 +38,7 @@ const LOGO_MAP: Record<string, string> = {
   neodev: neodevLogo.src,
   flowboat: flowboatLogo.src,
   ignitionhacks: ignitionhacksLogo.src,
-  cysc: "/cysc_logo.avif",
+  cysc: cyscLogo.src,
   jackorg: jackorgLogo.src,
   viggle: viggleLogo.src,
   plots: plotsLogo.src,

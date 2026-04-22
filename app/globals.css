@@ -85,6 +85,15 @@ html.theme-transitioning *::after {
   color: #1a1a1a;
 }
 
+/* hide scrollbar */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
 /* trophy shine animation */
 @keyframes trophyShine {
   0% {

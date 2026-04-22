@@ -1,15 +1,13 @@
 "use client";
 
-import Link from "next/link";
+import { useState } from "react";
 import { motion } from "framer-motion";
-import Timeline from "@/components/Timeline";
 import Contact from "@/components/Contact";
 import NavSocial from "@/components/NavSocial";
 import uwaterlooImage from "@/app/assets/uwaterloo.webp";
 import WorkExperience from "@/components/WorkExperience";
 import Projects from "@/components/Projects";
-
-// components
+import CommunityOverlay from "@/components/CommunityOverlay";
 
 const Nav = () => (
   <nav
@@ -19,38 +17,12 @@ const Nav = () => (
     <div className="flex items-center gap-3 md:gap-4 flex-wrap">
       <NavSocial />
     </div>
-    <div className="flex gap-4 md:gap-6">
-      <Link
-        href="/"
-        className="font-mono lowercase tracking-tighter transition-all duration-200"
-        style={{ color: "var(--text-primary)" }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.color = "var(--text-primary)";
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.color = "var(--text-primary)";
-        }}
-      >
-        home
-      </Link>
-      <Link
-        href="/projects"
-        className="font-mono lowercase tracking-tighter transition-all duration-200"
-        style={{ color: "var(--text-muted)" }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.color = "var(--text-primary)";
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.color = "var(--text-muted)";
-        }}
-      >
-        projects
-      </Link>
-    </div>
   </nav>
 );
 
 export default function Home() {
+  const [communityOpen, setCommunityOpen] = useState(false);
+
   return (
     <div
       className="min-h-screen"
@@ -110,6 +82,19 @@ export default function Home() {
                 <span>university of waterloo.</span>
               </a>
             </div>
+            <div
+              className="ml-4 flex items-center gap-1.5 mt-0.5"
+              style={{ whiteSpace: "nowrap" }}
+            >
+              ↳ i like{" "}
+              <span
+                onClick={() => setCommunityOpen(true)}
+                className="sweep-underline cursor-pointer"
+              >
+                building communities
+              </span>{" "}
+              and cool things.
+            </div>
           </div>
 
           <WorkExperience />
@@ -117,24 +102,20 @@ export default function Home() {
           <Projects />
         </motion.header>
 
-        {/* timeline section */}
+        {/* contact / footer */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
         >
-          <Timeline />
-        </motion.div>
-
-        {/* contact / footer */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
-        >
           <Contact />
         </motion.div>
       </main>
+
+      <CommunityOverlay
+        open={communityOpen}
+        onClose={() => setCommunityOpen(false)}
+      />
     </div>
   );
 }
