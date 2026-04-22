@@ -8,6 +8,8 @@ import anternoImage from "@/app/assets/anternomain.png";
 import anternoZoomImage from "@/app/assets/anternoshow.png";
 import pindexImage from "@/app/assets/pindex.png";
 import pindexZoomImage from "@/app/assets/pindexzoom.png";
+import donairImage from "@/app/assets/donairshow.png";
+import donairZoomImage from "@/app/assets/donairend.jpeg";
 
 const PROJECTS_DATA = [
   {
@@ -27,7 +29,8 @@ const PROJECTS_DATA = [
         text: "Spark",
         href: "https://ingeniousplus.ca/spark-investments/",
       },
-      { text: ", won $30k & backed by " },
+      { br: true },
+      { text: "won $30k & backed by " },
       { text: "DMZ Ventures", href: "https://dmzventures.com" },
       { text: " & " },
       { text: "RHF", href: "https://rhf-frh.ca/" },
@@ -51,6 +54,23 @@ const PROJECTS_DATA = [
     github: "https://github.com/danielp1218/Pindex",
     demo: "https://pindex.tech",
     href: "https://pindex.tech",
+  },
+  {
+    name: "donair",
+    descriptionParts: [
+      { text: "instant agentic crowdfunding. won twice @ " },
+      { text: "conuhacks", href: "https://conuhacks.io/" },
+      { br: true },
+      { text: "licensed to " },
+      { text: "maison du pere", href: "https://www.maisondupere.org/" },
+      { text: ", acquired by " },
+      { text: "talsom", href: "https://talsom.com/" },
+    ],
+    image: donairImage.src,
+    zoomImage: donairZoomImage.src,
+    article: "https://www.talsom.com/insights/talsom-et-la-maison-du-pere-du-design-thinking-a-laction-contre-litinerance/",
+    demo: "https://donair.tech",
+    href: "https://www.talsom.com/insights/talsom-et-la-maison-du-pere-du-design-thinking-a-laction-contre-litinerance/",
   },
 ];
 
@@ -163,7 +183,9 @@ export default function Projects() {
             >
               {project.descriptionParts
                 ? project.descriptionParts.map((part, i) =>
-                    part.href ? (
+                    part.br ? (
+                      <br key={i} />
+                    ) : part.href ? (
                       <span
                         key={i}
                         onClick={(e) => {
