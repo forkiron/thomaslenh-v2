@@ -29,8 +29,7 @@ const PROJECTS_DATA = [
         text: "Spark",
         href: "https://ingeniousplus.ca/spark-investments/",
       },
-      { br: true },
-      { text: "won $30k & backed by " },
+      { text: ", won $30k & backed by " },
       { text: "DMZ Ventures", href: "https://dmzventures.com" },
       { text: " & " },
       { text: "RHF", href: "https://rhf-frh.ca/" },
@@ -60,15 +59,15 @@ const PROJECTS_DATA = [
     descriptionParts: [
       { text: "instant agentic crowdfunding. won twice @ " },
       { text: "conuhacks", href: "https://conuhacks.io/" },
-      { br: true },
-      { text: "licensed to " },
+      { text: ", licensed to " },
       { text: "maison du pere", href: "https://www.maisondupere.org/" },
       { text: ", acquired by " },
       { text: "talsom", href: "https://talsom.com/" },
     ],
     image: donairImage.src,
     zoomImage: donairZoomImage.src,
-    article: "https://www.talsom.com/insights/talsom-et-la-maison-du-pere-du-design-thinking-a-laction-contre-litinerance/",
+    article:
+      "https://www.talsom.com/insights/talsom-et-la-maison-du-pere-du-design-thinking-a-laction-contre-litinerance/",
     demo: "https://donair.tech",
     href: "https://www.talsom.com/insights/talsom-et-la-maison-du-pere-du-design-thinking-a-laction-contre-litinerance/",
   },
@@ -78,8 +77,11 @@ export default function Projects() {
   return (
     <div className="mt-16 mb-0">
       <h3
-        className="text-[15px] md:text-[17px] font-medium lowercase tracking-tight mb-5"
-        style={{ color: "var(--text-muted)" }}
+        className="font-medium lowercase tracking-tight mb-5"
+        style={{
+          color: "var(--text-muted)",
+          fontSize: "var(--font-section-header)",
+        }}
       >
         projects:
       </h3>
@@ -128,8 +130,8 @@ export default function Projects() {
             {/* Title + links on the right */}
             <div className="flex items-center justify-between mb-1">
               <span
-                className="text-[14px] md:text-[15px] font-semibold lowercase tracking-tight"
-                style={{ color: "#1a1a1a" }}
+                className="font-semibold lowercase tracking-tight"
+                style={{ fontSize: "var(--font-project-title)", color: "#1a1a1a" }}
               >
                 {project.name}
               </span>
@@ -178,8 +180,8 @@ export default function Projects() {
 
             {/* Description */}
             <p
-              className="text-[11px] md:text-[12px] lowercase tracking-tight leading-relaxed m-0"
-              style={{ color: "#71717a" }}
+              className="lowercase tracking-tight leading-relaxed m-0"
+              style={{ fontSize: "var(--font-project-body)", color: "#71717a" }}
             >
               {project.descriptionParts
                 ? project.descriptionParts.map((part, i) =>

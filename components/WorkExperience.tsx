@@ -34,8 +34,8 @@ export default function WorkExperience() {
   return (
     <div className="mt-10 mb-0">
       <h3
-        className="text-[15px] md:text-[17px] font-medium lowercase tracking-tight mb-5"
-        style={{ color: "var(--text-muted)" }}
+        className="font-medium lowercase tracking-tight mb-5"
+        style={{ color: "var(--text-muted)", fontSize: "var(--font-section-header)" }}
       >
         work:
       </h3>
@@ -66,21 +66,21 @@ export default function WorkExperience() {
             )}
             <div className="flex-1 min-w-0">
               <span
-                className="text-[14px] md:text-[15px] font-semibold lowercase tracking-tight block"
-                style={{ color: "#1a1a1a" }}
+                className="font-semibold lowercase tracking-tight block"
+                style={{ color: "#1a1a1a", fontSize: "var(--font-card-title)" }}
               >
                 {job.company}
               </span>
               <span
-                className="text-[12px] md:text-[13px] lowercase tracking-tight mt-0.5 block"
-                style={{ color: "#71717a" }}
+                className="lowercase tracking-tight mt-0.5 block"
+                style={{ color: "#71717a", fontSize: "var(--font-card-body)" }}
               >
                 {job.role}
               </span>
             </div>
             <div
-              className="shrink-0 text-[12px] md:text-[13px] lowercase tracking-tight text-right"
-              style={{ color: "#a1a1aa" }}
+              className="shrink-0 lowercase tracking-tight text-right"
+              style={{ color: "#a1a1aa", fontSize: "var(--font-card-meta)" }}
             >
               {job.period}
             </div>

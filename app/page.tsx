@@ -169,8 +169,8 @@ export default function Home() {
         >
           <div className="flex items-center justify-between mb-4">
             <h1
-              className="text-2xl md:text-3xl font-medium lowercase tracking-tight"
-              style={{ color: "var(--text-primary)" }}
+              className="font-medium lowercase tracking-tight"
+              style={{ fontSize: "var(--font-hero)", color: "var(--text-primary)" }}
             >
               thomas lenh
             </h1>
@@ -180,7 +180,7 @@ export default function Home() {
             className="max-w-md leading-relaxed lowercase"
             style={{
               color: "var(--text-muted)",
-              fontSize: "clamp(0.75rem, 2.5vw, 1rem)",
+              fontSize: "var(--font-bio)",
             }}
           >
             <div className="mb-1">engineer based in waterloo and toronto.</div>
