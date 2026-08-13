@@ -15,13 +15,71 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://thomaslenh.com"),
   title: "Thomas Lenh",
-  description: "whats up im thomas",
+  description: "thomas lenh website",
+  keywords: [
+    "Thomas Lenh",
+    "thomaslenh",
+    "thomas lenh website",
+    "software engineer",
+    "University of Waterloo",
+    "Waterloo",
+    "Toronto",
+  ],
+  authors: [{ name: "Thomas Lenh", url: "https://thomaslenh.com" }],
+  creator: "Thomas Lenh",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Thomas Lenh",
+    description: "thomas lenh website",
+    url: "https://thomaslenh.com",
+    siteName: "Thomas Lenh",
+    type: "website",
+    locale: "en_US",
+    images: ["/logo.png"],
+  },
+  twitter: {
+    card: "summary",
+    title: "Thomas Lenh",
+    description: "thomas lenh website",
+    images: ["/logo.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   icons: {
     icon: "/logo.png",
     shortcut: "/logo.png",
     apple: "/logo.png",
   },
+};
+
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Thomas Lenh",
+  url: "https://thomaslenh.com",
+  image: "https://thomaslenh.com/logo.png",
+  jobTitle: "Software Engineer",
+  alumniOf: {
+    "@type": "CollegeOrUniversity",
+    name: "University of Waterloo",
+  },
+  sameAs: [
+    "https://github.com/forkiron",
+    "https://www.linkedin.com/in/thomas-lenh",
+    "https://x.com/forkyron",
+  ],
 };
 
 export default function RootLayout({
@@ -34,6 +92,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
         <ThemeProvider>{children}</ThemeProvider>
         <Analytics />
       </body>

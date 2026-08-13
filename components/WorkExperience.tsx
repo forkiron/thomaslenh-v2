@@ -1,11 +1,19 @@
 "use client";
 
 import React from "react";
+import teslaLogo from "@/app/assets/tesla.png";
 import viggleLogo from "@/app/assets/vigglenew.webp";
 import plotsLogo from "@/app/assets/plots_new.png";
 import keywaLogo from "@/app/assets/keywa_logo.jpg";
 
 const WORK_DATA = [
+  {
+    company: "Tesla",
+    role: "software engineer",
+    period: "winter 2027",
+    logo: teslaLogo.src,
+    href: "https://www.tesla.com/",
+  },
   {
     company: "Viggle (a16z)",
     role: "member of technical staff",
